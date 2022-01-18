@@ -1,0 +1,805 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_dashboard"
+    app:startDestination="@id/dashboardFragment">
+
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.planscollective.plansapp.fragment.dashboard.DashboardFragment"
+        android:label="fragment_dashboard"
+        tools:layout="@layout/fragment_dashboard" />
+    <fragment
+        android:id="@+id/hiddenEventsFragment"
+        android:name="com.planscollective.plansapp.fragment.home.HiddenEventsFragment"
+        android:label="fragment_hidden_events"
+        tools:layout="@layout/fragment_hidden_events" />
+    <action
+        android:id="@+id/action_global_hiddenEventsFragment"
+        app:destination="@id/hiddenEventsFragment"
+        app:enterAnim="@anim/move_in_left"
+        app:exitAnim="@anim/move_out_left"
+        app:launchSingleTop="false"
+        app:popEnterAnim="@anim/move_in_right"
+        app:popExitAnim="@anim/move_out_right" />
+    <fragment
+        android:id="@+id/searchEventFragment"
+        android:name="com.planscollective.plansapp.fragment.home.SearchEventFragment"
+        android:label="fragment_search_event"
+        tools:layout="@layout/fragment_search_event" />
+    <action
+        android:id="@+id/action_global_searchEventFragment"
+        app:destination="@id/searchEventFragment"
+        app:enterAnim="@anim/move_in_left"
+        app:exitAnim="@anim/move_out_left"
+        app:launchSingleTop="false"
+        app:popEnterAnim="@anim/move_in_right"
+        app:popExitAnim="@anim/move_out_right" />
+    <fragment
+        android:id="@+id/calendarFragment"
+        android:name="com.planscollective.plansapp.fragment.home.CalendarFragment"
+        android:label="fragment_calendar"
+        tools:layout="@layout/fragment_calendar">
+        <argument
+            android:name="eventModel"
+            app:argType="com.planscollective.plansapp.models.dataModels.EventModel"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+    <action
+        android:id="@+id/action_global_calendarFragment"
+        app:destination="@id/calendarFragment"
+        app:enterAnim="@anim/move_in_left"
+        app:exitAnim="@anim/move_out_left"
+        app:launchSingleTop="false"
+        app:popEnterAnim="@anim/move_in_right"
+        app:popExitAnim="@anim/move_out_right" />
+    <fragment
+        android:id="@+id/eventDetailsFragment"
+        android:name="com.planscollective.plansapp.fragment.event.EventDetailsFragment"
+        android:label="fragment_event_details"
+        tools:layout="@layout/fragment_event_details" >
+        <argument
+            android:name="eventId"
+            app:argType="string" />
+    </fragment>
+    <action android:id="@+id/action_global_eventDetailsFragment"
+        app:destination="@id/eventDetailsFragment"
+        app:enterAnim="@anim/move_in_left"
+        app:exitAnim="@anim/move_out_left"
+        app:launchSingleTop="false"
+        app:popEnterAnim="@anim/move_in_right"
+        app:popExitAnim="@anim/move_out_right"/>
+    <fragment
+        android:id="@+id/openImageFragment"
+        android:name="com.planscollective.plansapp.fragment.camera.OpenImageFragment"
+        android:label="fragment_open_image"
+        tools:layout="@layout/fragment_open_image" >
+        <argument
+            android:name="urlPhoto"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="title"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null"/>
+    </fragment>
+    <action android:id="@+id/action_global_openImageFragment"
+        app:destination="@id/openImageFragment"
+        app:enterAnim="@anim/move_in_left"
+        app:exitAnim="@anim/move_out_left"
+        app:launchSingleTop="false"
+        app:popEnterAnim="@anim/move_in_right"
+        app:popExitAnim="@anim/move_out_right"/>
+    <fragment
+        android:id="@+id/postDetailsFragment"
+        android:name="com.planscollective.plansapp.fragment.post.PostDetailsFragment"
+        android:label="PostDetailsFragment"
+        tools:layout="@layout/fragment_post_details">
+        <argument
+            android:name="eventId"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="postId"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+    <action android:id="@+id/action_global_postDetailsFragment"
+        app:destination="@id/postDetailsFragment"
+        app:enterAnim="@anim/move_in_left"
+        app:exitAnim="@anim/move_out_left"
+        app:launchSingleTop="false"
+        app:popEnterAnim="@anim/move_in_right"
+        app:popExitAnim="@anim/move_out_right"/>
+    <fragment
+        android:id="@+id/liveMomentsFragment"
+        android:name="com.planscollective.plansapp.fragment.liveMoment.LiveMomentsFragment"
+        android:label="LiveMomentsFragment"
+        tools:layout="@layout/fragment_live_moments">
+        <argument
+            android:name="eventId"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+    <action android:id="@+id/action_global_liveMomentsFragment"
+        app:destination="@id/liveMomentsFragment"
+        app:enterAnim="@anim/move_in_left"
+        app:exitAnim="@anim/move_out_left"
+        app:launchSingleTop="false"
+        app:popEnterAnim="@anim/move_in_right"
+        app:popExitAnim="@anim/move_out_right"/>
+    <fragment
+        android:id="@+id/watchLiveMomentsFragment"
+        android:name="com.planscollective.plansapp.fragment.liveMoment.WatchLiveMomentsFragment"
+        android:label="WatchLiveMomentsFragment"
+        tools:layout="@layout/fragment_watch_live_moment">
+        <argument
+            android:name="eventId"
+            app:argType="string"
+            app:nullable="false"/>
+        <argument
+            android:name="userId"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <argument
+            android:name="liveMomentId"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+    <action
+        android:id="@+id/action_global_watchLiveMomentsFragment"
+        app:destination="@id/watchLiveMomentsFragment"
+        app:enterAnim="@anim/move_in_left"
+        app:exitAnim="@anim/move_out_left"
+        app:launchSingleTop="false"
+        app:popEnterAnim="@anim/move_in_fade"
+        app:popExitAnim="@anim/move_out_right" />
+    <fragment
+        android:id="@+id/detailsOfEventFragment"
+        android:name="com.planscollective.plansapp.fragment.event.DetailsOfEventFragment"
+        android:label="DetailsOfEventFragment"
+        tools:layout="@layout/fragment_details_of_event">
+        <argument
+            android:name="eventId"
+            app:argType="string"
+            app:nullable="false"/>
+    </fragment>
+    <action android:id="@+id/action_global_detailsOfEventFragment"
+        app:destination="@id/detailsOfEventFragment"
+        app:enterAnim="@anim/move_in_left"
+        app:exitAnim="@anim/move_out_left"
+        app:launchSingleTop="false"
+        app:popEnterAnim="@anim/move_in_right"
+        app:popExitAnim="@anim/move_out_right"/>
+    <fragment
+        android:id="@+id/liveMomentCameraFragment"
+        android:name="com.planscollective.plansapp.fragment.liveMoment.LiveMomentCameraFragment"
+        android:label="LiveMomentCameraFragment"
+        tools:layout="@layout/fragment_live_moment_camera">
+        <argument
+            android:name="eventId"
+            app:argType="string"
+            app:nullable="false"/>
+        <argument
+            android:name="eventName"
+            app:argType="string"
+            app:nullable="false"/>
+        <argument
+            android:name="isLive"
+            app:argType="boolean"
+            app:nullable="false"
+            android:defaultValue="false"/>
+    </fragment>
+    <action android:id="@+id/action_global_liveMomentCameraFragment"
+        app:destination="@id/liveMomentCameraFragment"
+        app:enterAnim="@anim/move_in_left"
+        app:exitAnim="@anim/move_out_left"
+        app:launchSingleTop="false"
+        app:popEnterAnim="@anim/move_in_right"
+        app:popExitAnim="@anim/move_out_right"/>
+    <fragment
+        android:id="@+id/peopleInvitedFragment"
+        android:name="com.planscollective.plansapp.fragment.event.PeopleInvitedFragment"
+        android:label="PeopleInvitedFragment"
+        tools:layout="@layout/fragment_people_invited">
+        <argument
+            android:name="eventId"
+            app:argType="string"
+            app:nullable="false"/>
+    </fragment>
+    <action android:id="@+id/action_global_peopleInvitedFragment"
+        app:destination="@id/peopleInvitedFragment"
+        app:enterAnim="@anim/move_in_left"
+        app:exitAnim="@anim/move_out_left"
+        app:launchSingleTop="false"
+        app:popEnterAnim="@anim/move_in_right"
+        app:popExitAnim="@anim/move_out_right"/>
+    <fragment
+        android:id="@+id/editInvitationFragment"
+        android:name="com.planscollective.plansapp.fragment.event.EditInvitationFragment"
+        android:label="EditInvitationFragment"
+        tools:layout="@layout/fragment_edit_invitation">
+        <argument
+            android:name="eventId"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null"/>
+        <argument
+            android:name="editMode"
+            app:argType="string"
+            android:defaultValue="EDIT" />
+        <argument
+            android:name="usersSelected"
+            app:argType="com.planscollective.plansapp.models.dataModels.InvitationModel[]"
+            app:nullable="true"
+            android:defaultValue="@null" />
+
+    </fragment>
+    <action android:id="@+id/action_global_editInvitationFragment"
+        app:destination="@id/editInvitationFragment"
+        app:enterAnim="@anim/move_in_left"
+        app:exitAnim="@anim/move_out_left"
+        app:launchSingleTop="false"
+        app:popEnterAnim="@anim/move_in_right"
+        app:popExitAnim="@anim/move_out_right"/>
+    <fragment
+        android:id="@+id/countryCodeListFragment3"
+        android:name="com.planscollective.plansapp.fragment.auth.CountryCodeListFragment"
+        android:label="fragment_country_code_list"
+        tools:layout="@layout/fragment_country_code_list" />
+    <action android:id="@+id/action_global_countryCodeListFragment3"
+        app:destination="@id/countryCodeListFragment3"
+        app:enterAnim="@anim/move_in_left"
+        app:exitAnim="@anim/move_out_left"
+        app:launchSingleTop="false"
+        app:popEnterAnim="@anim/move_in_right"
+        app:popExitAnim="@anim/move_out_right"/>
+    <fragment
+        android:id="@+id/editEventFragment"
+        android:name="com.planscollective.plansapp.fragment.event.EditEventFragment"
+        android:label="EditEventFragment"
+        tools:layout="@layout/fragment_edit_event">
+        <argument
+            android:name="eventId"
+            app:argType="string" />
+        <argument
+            android:name="isDuplicate"
+            app:argType="boolean"
+            android:defaultValue="false" />
+        <argument
+            android:name="eventModel"
+            app:argType="com.planscollective.plansapp.models.dataModels.EventModel"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+    <action android:id="@+id/action_global_editEventFragment"
+        app:destination="@id/editEventFragment"
+        app:enterAnim="@anim/move_in_left"
+        app:exitAnim="@anim/move_out_left"
+        app:launchSingleTop="false"
+        app:popEnterAnim="@anim/move_in_right"
+        app:popExitAnim="@anim/move_out_right"/>
+    <fragment
+        android:id="@+id/createEventFragment"
+        android:name="com.planscollective.plansapp.fragment.event.CreateEventFragment"
+        android:label="CreateEventFragment"
+        tools:layout="@layout/fragment_create_event">
+        <argument
+            android:name="placeModel"
+            app:argType="com.planscollective.plansapp.models.dataModels.PlaceModel"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+    <action android:id="@+id/action_global_createEventFragment"
+        app:destination="@id/createEventFragment"
+        app:enterAnim="@anim/move_in_left"
+        app:exitAnim="@anim/move_out_left"
+        app:launchSingleTop="false"
+        app:popEnterAnim="@anim/move_in_right"
+        app:popExitAnim="@anim/move_out_right"/>
+    <fragment
+        android:id="@+id/createEventProgress1Fragment"
+        android:name="com.planscollective.plansapp.fragment.event.CreateEventProgress1Fragment"
+        android:label="CreateEventProgress1Fragment"
+        tools:layout="@layout/fragment_create_event_progress1"/>
+    <action android:id="@+id/action_global_createEventProgress1Fragment"
+        app:destination="@id/createEventProgress1Fragment"
+        app:enterAnim="@anim/move_in_left"
+        app:exitAnim="@anim/move_out_left"
+        app:launchSingleTop="false"
+        app:popEnterAnim="@anim/move_in_right"
+        app:popExitAnim="@anim/move_out_right"/>
+    <fragment
+        android:id="@+id/createEventProgress2Fragment"
+        android:name="com.planscollective.plansapp.fragment.event.CreateEventProgress2Fragment"
+        android:label="CreateEventProgress2Fragment"
+        tools:layout="@layout/fragment_create_event_progress2"/>
+    <action android:id="@+id/action_global_createEventProgress2Fragment"
+        app:destination="@id/createEventProgress2Fragment"
+        app:enterAnim="@anim/move_in_left"
+        app:exitAnim="@anim/move_out_left"
+        app:launchSingleTop="false"
+        app:popEnterAnim="@anim/move_in_right"
+        app:popExitAnim="@anim/move_out_right"/>
+    <fragment
+        android:id="@+id/createEventProgress3Fragment"
+        android:name="com.planscollective.plansapp.fragment.event.CreateEventProgress3Fragment"
+        android:label="CreateEventProgress3Fragment"
+        tools:layout="@layout/fragment_create_event_progress3"/>
+    <action android:id="@+id/action_global_createEventProgress3Fragment"
+        app:destination="@id/createEventProgress3Fragment"
+        app:enterAnim="@anim/move_in_left"
+        app:exitAnim="@anim/move_out_left"
+        app:launchSingleTop="false"
+        app:popEnterAnim="@anim/move_in_right"
+        app:popExitAnim="@anim/move_out_right"/>
+    <fragment
+        android:id="@+id/locationSelectionFragment"
+        android:name="com.planscollective.plansapp.fragment.location.LocationSelectionFragment"
+        android:label="LocationSelectionFragment"
+        tools:layout="@layout/fragment_location_selection">
+        <argument
+            android:name="typeSelection"
+            app:argType="string"
+            android:defaultValue="LOCATION_DISCOVERY" />
+    </fragment>
+    <action android:id="@+id/action_global_locationSelectionFragment"
+        app:destination="@id/locationSelectionFragment"
+        app:enterAnim="@anim/move_in_left"
+        app:exitAnim="@anim/move_out_left"
+        app:launchSingleTop="false"
+        app:popEnterAnim="@anim/move_in_right"
+        app:popExitAnim="@anim/move_out_right"/>
+    <fragment
+        android:id="@+id/locationDiscoveryFragment"
+        android:name="com.planscollective.plansapp.fragment.location.LocationDiscoveryFragment"
+        android:label="LocationDiscoveryFragment"
+        tools:layout="@layout/fragment_location_discovery">
+        <argument
+            android:name="typeSelection"
+            app:argType="string"
+            android:defaultValue="LOCATION_DISCOVERY" />
+    </fragment>
+    <action android:id="@+id/action_global_locationDiscoveryFragment"
+        app:destination="@id/locationDiscoveryFragment"
+        app:enterAnim="@anim/move_in_left"
+        app:exitAnim="@anim/move_out_left"
+        app:launchSingleTop="false"
+        app:popEnterAnim="@anim/move_in_right"
+        app:popExitAnim="@anim/move_out_right"/>
+    <fragment
+        android:id="@+id/placeDetailsFragment"
+        android:name="com.planscollective.plansapp.fragment.location.PlaceDetailsFragment"
+        android:label="PlaceDetailsFragment"
+        tools:layout="@layout/fragment_place_details">
+        <argument
+            android:name="typeSelection"
+            app:argType="string"
+            android:defaultValue="LOCATION_DISCOVERY" />
+        <argument
+            android:name="placeId"
+            app:argType="string" />
+        <argument
+            android:name="placeModel"
+            app:argType="com.planscollective.plansapp.models.dataModels.PlaceModel"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+    <action android:id="@+id/action_global_placeDetailsFragment"
+        app:destination="@id/placeDetailsFragment"
+        app:enterAnim="@anim/move_in_left"
+        app:exitAnim="@anim/move_out_left"
+        app:launchSingleTop="false"
+        app:popEnterAnim="@anim/move_in_right"
+        app:popExitAnim="@anim/move_out_right"/>
+    <fragment
+        android:id="@+id/coinsFragment"
+        android:name="com.planscollective.plansapp.fragment.profile.CoinsFragment"
+        android:label="CoinsFragment"
+        tools:layout="@layout/fragment_coins">
+        <argument
+            android:name="userId"
+            app:argType="string" />
+        <argument
+            android:name="userModel"
+            app:argType="com.planscollective.plansapp.models.dataModels.UserModel"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+    <action android:id="@+id/action_global_coinsFragment"
+        app:destination="@id/coinsFragment"
+        app:enterAnim="@anim/move_in_left"
+        app:exitAnim="@anim/move_out_left"
+        app:launchSingleTop="false"
+        app:popEnterAnim="@anim/move_in_right"
+        app:popExitAnim="@anim/move_out_right"/>
+    <fragment
+        android:id="@+id/userProfileFragment"
+        android:name="com.planscollective.plansapp.fragment.profile.UserProfileFragment"
+        android:label="UserProfileFragment"
+        tools:layout="@layout/fragment_user_profile">
+        <argument
+            android:name="userId"
+            app:argType="string" />
+        <argument
+            android:name="userModel"
+            app:argType="com.planscollective.plansapp.models.dataModels.UserModel"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+    <action android:id="@+id/action_global_userProfileFragment"
+        app:destination="@id/userProfileFragment"
+        app:enterAnim="@anim/move_in_left"
+        app:exitAnim="@anim/move_out_left"
+        app:launchSingleTop="false"
+        app:popEnterAnim="@anim/move_in_right"
+        app:popExitAnim="@anim/move_out_right"/>
+    <fragment
+        android:id="@+id/friendsListFragment"
+        android:name="com.planscollective.plansapp.fragment.users.FriendsListFragment"
+        android:label="FriendsListFragment"
+        tools:layout="@layout/fragment_friends_list">
+        <argument
+            android:name="userId"
+            app:argType="string" />
+        <argument
+            android:name="userModel"
+            app:argType="com.planscollective.plansapp.models.dataModels.UserModel"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+    <action android:id="@+id/action_global_friendsListFragment"
+        app:destination="@id/friendsListFragment"
+        app:enterAnim="@anim/move_in_left"
+        app:exitAnim="@anim/move_out_left"
+        app:launchSingleTop="false"
+        app:popEnterAnim="@anim/move_in_right"
+        app:popExitAnim="@anim/move_out_right"/>
+    <fragment
+        android:id="@+id/addFriendsFragment"
+        android:name="com.planscollective.plansapp.fragment.users.AddFriendsFragment"
+        android:label="AddFriendsFragment"
+        tools:layout="@layout/fragment_add_friends">
+        <argument
+            android:name="userId"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <argument
+            android:name="userModel"
+            app:argType="com.planscollective.plansapp.models.dataModels.UserModel"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+    <action android:id="@+id/action_global_addFriendsFragment"
+        app:destination="@id/addFriendsFragment"
+        app:enterAnim="@anim/move_in_left"
+        app:exitAnim="@anim/move_out_left"
+        app:launchSingleTop="false"
+        app:popEnterAnim="@anim/move_in_right"
+        app:popExitAnim="@anim/move_out_right"/>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.planscollective.plansapp.fragment.settings.SettingsFragment"
+        android:label="SettingsFragment"
+        tools:layout="@layout/fragment_settings"/>
+    <action android:id="@+id/action_global_settingsFragment"
+        app:destination="@id/settingsFragment"
+        app:enterAnim="@anim/move_in_left"
+        app:exitAnim="@anim/move_out_left"
+        app:launchSingleTop="false"
+        app:popEnterAnim="@anim/move_in_right"
+        app:popExitAnim="@anim/move_out_right"/>
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.planscollective.plansapp.fragment.settings.EditProfileFragment"
+        android:label="EditProfileFragment"
+        tools:layout="@layout/fragment_edit_profile"/>
+    <action android:id="@+id/action_global_editProfileFragment"
+        app:destination="@id/editProfileFragment"
+        app:enterAnim="@anim/move_in_left"
+        app:exitAnim="@anim/move_out_left"
+        app:launchSingleTop="false"
+        app:popEnterAnim="@anim/move_in_right"
+        app:popExitAnim="@anim/move_out_right"/>
+    <fragment
+        android:id="@+id/changePasswordFragment"
+        android:name="com.planscollective.plansapp.fragment.settings.ChangePasswordFragment"
+        android:label="ChangePasswordFragment"
+        tools:layout="@layout/fragment_change_password"/>
+    <action android:id="@+id/action_global_changePasswordFragment"
+        app:destination="@id/changePasswordFragment"
+        app:enterAnim="@anim/move_in_left"
+        app:exitAnim="@anim/move_out_left"
+        app:launchSingleTop="false"
+        app:popEnterAnim="@anim/move_in_right"
+        app:popExitAnim="@anim/move_out_right"/>
+    <fragment
+        android:id="@+id/postsLikedFragment"
+        android:name="com.planscollective.plansapp.fragment.settings.PostsLikedFragment"
+        android:label="PostsLikedFragment"
+        tools:layout="@layout/fragment_posts_liked"/>
+    <action android:id="@+id/action_global_postsLikedFragment"
+        app:destination="@id/postsLikedFragment"
+        app:enterAnim="@anim/move_in_left"
+        app:exitAnim="@anim/move_out_left"
+        app:launchSingleTop="false"
+        app:popEnterAnim="@anim/move_in_right"
+        app:popExitAnim="@anim/move_out_right"/>
+    <fragment
+        android:id="@+id/settingsPushNotificationsFragment"
+        android:name="com.planscollective.plansapp.fragment.settings.SettingsPushNotificationsFragment"
+        android:label="SettingsPushNotificationsFragment"
+        tools:layout="@layout/fragment_settings_push_notifications"/>
+    <action android:id="@+id/action_global_settingsPushNotificationsFragment"
+        app:destination="@id/settingsPushNotificationsFragment"
+        app:enterAnim="@anim/move_in_left"
+        app:exitAnim="@anim/move_out_left"
+        app:launchSingleTop="false"
+        app:popEnterAnim="@anim/move_in_right"
+        app:popExitAnim="@anim/move_out_right"/>
+    <fragment
+        android:id="@+id/privacyOptionsFragment"
+        android:name="com.planscollective.plansapp.fragment.settings.PrivacyOptionsFragment"
+        android:label="PrivacyOptionsFragment"
+        tools:layout="@layout/fragment_privacy_options"/>
+    <action android:id="@+id/action_global_privacyOptionsFragment"
+        app:destination="@id/privacyOptionsFragment"
+        app:enterAnim="@anim/move_in_left"
+        app:exitAnim="@anim/move_out_left"
+        app:launchSingleTop="false"
+        app:popEnterAnim="@anim/move_in_right"
+        app:popExitAnim="@anim/move_out_right"/>
+    <fragment
+        android:id="@+id/usersBlockedFragment"
+        android:name="com.planscollective.plansapp.fragment.settings.UsersBlockedFragment"
+        android:label="UsersBlockedFragment"
+        tools:layout="@layout/fragment_users_blocked"/>
+    <action android:id="@+id/action_global_usersBlockedFragment"
+        app:destination="@id/usersBlockedFragment"
+        app:enterAnim="@anim/move_in_left"
+        app:exitAnim="@anim/move_out_left"
+        app:launchSingleTop="false"
+        app:popEnterAnim="@anim/move_in_right"
+        app:popExitAnim="@anim/move_out_right"/>
+    <fragment
+        android:id="@+id/sendFeedbackFragment"
+        android:name="com.planscollective.plansapp.fragment.settings.SendFeedbackFragment"
+        android:label="SendFeedbackFragment"
+        tools:layout="@layout/fragment_send_feedback">
+        <argument
+            android:name="type"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="SEND_FEEDBACK" />
+    </fragment>
+    <action android:id="@+id/action_global_sendFeedbackFragment"
+        app:destination="@id/sendFeedbackFragment"
+        app:enterAnim="@anim/move_in_left"
+        app:exitAnim="@anim/move_out_left"
+        app:launchSingleTop="false"
+        app:popEnterAnim="@anim/move_in_right"
+        app:popExitAnim="@anim/move_out_right"/>
+    <fragment
+        android:id="@+id/helpLegalFragment"
+        android:name="com.planscollective.plansapp.fragment.settings.HelpLegalFragment"
+        android:label="HelpLegalFragment"
+        tools:layout="@layout/fragment_help_legal"/>
+    <action android:id="@+id/action_global_helpLegalFragment"
+        app:destination="@id/helpLegalFragment"
+        app:enterAnim="@anim/move_in_left"
+        app:exitAnim="@anim/move_out_left"
+        app:launchSingleTop="false"
+        app:popEnterAnim="@anim/move_in_right"
+        app:popExitAnim="@anim/move_out_right"/>
+    <fragment
+        android:id="@+id/privacyPolicyFragment2"
+        android:name="com.planscollective.plansapp.fragment.helplegal.PrivacyPolicyFragment"
+        android:label="fragment_helplegal_privacy"
+        tools:layout="@layout/fragment_helplegal_privacy" />
+    <action android:id="@+id/action_global_privacyPolicyFragment2"
+        app:destination="@id/privacyPolicyFragment2"
+        app:enterAnim="@anim/move_in_left"
+        app:exitAnim="@anim/move_out_left"
+        app:launchSingleTop="false"
+        app:popEnterAnim="@anim/move_in_right"
+        app:popExitAnim="@anim/move_out_right"/>
+    <fragment
+        android:id="@+id/termsOfServicesFragment2"
+        android:name="com.planscollective.plansapp.fragment.helplegal.TermsOfServicesFragment"
+        android:label="fragment_helplegal_terms"
+        tools:layout="@layout/fragment_helplegal_terms" />
+    <action android:id="@+id/action_global_termsOfServicesFragment2"
+        app:destination="@id/termsOfServicesFragment2"
+        app:enterAnim="@anim/move_in_left"
+        app:exitAnim="@anim/move_out_left"
+        app:launchSingleTop="false"
+        app:popEnterAnim="@anim/move_in_right"
+        app:popExitAnim="@anim/move_out_right"/>
+    <fragment
+        android:id="@+id/deleteAccountFragment"
+        android:name="com.planscollective.plansapp.fragment.settings.DeleteAccountFragment"
+        android:label="DeleteAccountFragment"
+        tools:layout="@layout/fragment_delete_account"/>
+    <action android:id="@+id/action_global_deleteAccountFragment"
+        app:destination="@id/deleteAccountFragment"
+        app:enterAnim="@anim/move_in_left"
+        app:exitAnim="@anim/move_out_left"
+        app:launchSingleTop="false"
+        app:popEnterAnim="@anim/move_in_right"
+        app:popExitAnim="@anim/move_out_right"/>
+    <fragment
+        android:id="@+id/friendRequestsFragment"
+        android:name="com.planscollective.plansapp.fragment.notifications.FriendRequestsFragment"
+        android:label="FriendRequestsFragment"
+        tools:layout="@layout/fragment_friend_requests"/>
+    <action android:id="@+id/action_global_friendRequestsFragment"
+        app:destination="@id/friendRequestsFragment"
+        app:enterAnim="@anim/move_in_left"
+        app:exitAnim="@anim/move_out_left"
+        app:launchSingleTop="false"
+        app:popEnterAnim="@anim/move_in_right"
+        app:popExitAnim="@anim/move_out_right"/>
+    <fragment
+        android:id="@+id/eventInvitationsFragment"
+        android:name="com.planscollective.plansapp.fragment.notifications.EventInvitationsFragment"
+        android:label="EventInvitationsFragment"
+        tools:layout="@layout/fragment_event_invitations"/>
+    <action android:id="@+id/action_global_eventInvitationsFragment"
+        app:destination="@id/eventInvitationsFragment"
+        app:enterAnim="@anim/move_in_left"
+        app:exitAnim="@anim/move_out_left"
+        app:launchSingleTop="false"
+        app:popEnterAnim="@anim/move_in_right"
+        app:popExitAnim="@anim/move_out_right"/>
+    <fragment
+        android:id="@+id/friendsSelectionFragment"
+        android:name="com.planscollective.plansapp.fragment.users.FriendsSelectionFragment"
+        android:label="FriendsSelectionFragment"
+        tools:layout="@layout/fragment_friends_selection">
+        <argument
+            android:name="type"
+            app:argType="string"
+            android:defaultValue="CHAT_START" />
+        <argument
+            android:name="usersSelected"
+            app:argType="com.planscollective.plansapp.models.dataModels.UserModel[]"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <argument
+            android:name="chatId"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+    <action android:id="@+id/action_global_friendsSelectionFragment"
+        app:destination="@id/friendsSelectionFragment"
+        app:enterAnim="@anim/move_in_left"
+        app:exitAnim="@anim/move_out_left"
+        app:launchSingleTop="false"
+        app:popEnterAnim="@anim/move_in_right"
+        app:popExitAnim="@anim/move_out_right"/>
+    <fragment
+        android:id="@+id/chattingFragment"
+        android:name="com.planscollective.plansapp.fragment.chats.ChattingFragment"
+        android:label="ChattingFragment"
+        tools:layout="@layout/fragment_chatting">
+        <argument
+            android:name="chatModel"
+            app:argType="com.planscollective.plansapp.models.dataModels.ChatModel" />
+    </fragment>
+    <action android:id="@+id/action_global_chattingFragment"
+        app:destination="@id/chattingFragment"
+        app:enterAnim="@anim/move_in_left"
+        app:exitAnim="@anim/move_out_left"
+        app:launchSingleTop="false"
+        app:popEnterAnim="@anim/move_in_right"
+        app:popExitAnim="@anim/move_out_right"/>
+    <fragment
+        android:id="@+id/chatSettingsFragment"
+        android:name="com.planscollective.plansapp.fragment.chats.ChatSettingsFragment"
+        android:label="ChatSettingsFragment"
+        tools:layout="@layout/fragment_chat_settings">
+        <argument
+            android:name="chatId"
+            app:argType="string" />
+        <argument
+            android:name="chatModel"
+            app:argType="com.planscollective.plansapp.models.dataModels.ChatModel"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+    <action android:id="@+id/action_global_chatSettingsFragment"
+        app:destination="@id/chatSettingsFragment"
+        app:enterAnim="@anim/move_in_left"
+        app:exitAnim="@anim/move_out_left"
+        app:launchSingleTop="false"
+        app:popEnterAnim="@anim/move_in_right"
+        app:popExitAnim="@anim/move_out_right"/>
+    <fragment
+        android:id="@+id/inviteByLinkFragment"
+        android:name="com.planscollective.plansapp.fragment.event.InviteByLinkFragment"
+        android:label="InviteByLinkFragment"
+        tools:layout="@layout/fragment_invite_by_link">
+        <argument
+            android:name="event"
+            app:argType="com.planscollective.plansapp.models.dataModels.EventModel" />
+    </fragment>
+    <action android:id="@+id/action_global_inviteByLinkFragment"
+        app:destination="@id/inviteByLinkFragment"
+        app:enterAnim="@anim/move_in_left"
+        app:exitAnim="@anim/move_out_left"
+        app:launchSingleTop="false"
+        app:popEnterAnim="@anim/move_in_right"
+        app:popExitAnim="@anim/move_out_right" />
+    <fragment
+        android:id="@+id/usersLikedPostFragment"
+        android:name="com.planscollective.plansapp.fragment.post.UsersLikedPostFragment"
+        android:label="UsersLikedPostFragment"
+        tools:layout="@layout/fragment_users_liked_post">
+        <argument
+            android:name="eventId"
+            app:argType="string"/>
+        <argument
+            android:name="postId"
+            app:argType="string"/>
+    </fragment>
+    <action android:id="@+id/action_global_usersLikedPostFragment"
+        app:destination="@id/usersLikedPostFragment"
+        app:enterAnim="@anim/move_in_left"
+        app:exitAnim="@anim/move_out_left"
+        app:launchSingleTop="false"
+        app:popEnterAnim="@anim/move_in_right"
+        app:popExitAnim="@anim/move_out_right" />
+    <fragment
+        android:id="@+id/videoPlayerFragment"
+        android:name="com.planscollective.plansapp.fragment.camera.VideoPlayerFragment"
+        android:label="VideoPlayerFragment"
+        tools:layout="@layout/fragment_video_player">
+        <argument
+            android:name="urlVideo"
+            app:argType="string"
+            app:nullable="false" />
+    </fragment>
+    <action android:id="@+id/action_global_videoPlayerFragment"
+        app:destination="@id/videoPlayerFragment"
+        app:enterAnim="@anim/move_in_left"
+        app:exitAnim="@anim/move_out_left"
+        app:launchSingleTop="false"
+        app:popEnterAnim="@anim/move_in_right"
+        app:popExitAnim="@anim/move_out_right"/>
+    <fragment
+        android:id="@+id/assignAdminForChatFragment"
+        android:name="com.planscollective.plansapp.fragment.users.AssignAdminForChatFragment"
+        android:label="AssignAdminForChatFragment"
+        tools:layout="@layout/fragment_assign_admin">
+        <argument
+            android:name="chatId"
+            app:argType="string" />
+    </fragment>
+    <action android:id="@+id/action_global_assignAdminForChatFragment"
+        app:destination="@id/assignAdminForChatFragment"
+        app:enterAnim="@anim/move_in_left"
+        app:exitAnim="@anim/move_out_left"
+        app:launchSingleTop="false"
+        app:popEnterAnim="@anim/move_in_right"
+        app:popExitAnim="@anim/move_out_right"/>
+    <fragment
+        android:id="@+id/chatsFragment"
+        android:name="com.planscollective.plansapp.fragment.chats.ChatsFragment"
+        android:label="ChatsFragment"
+        tools:layout="@layout/fragment_chats"/>
+    <action android:id="@+id/action_global_chatsFragment"
+        app:destination="@id/chatsFragment"
+        app:enterAnim="@anim/move_in_left"
+        app:exitAnim="@anim/move_out_left"
+        app:launchSingleTop="false"
+        app:popEnterAnim="@anim/move_in_right"
+        app:popExitAnim="@anim/move_out_right"/>
+
+</navigation>

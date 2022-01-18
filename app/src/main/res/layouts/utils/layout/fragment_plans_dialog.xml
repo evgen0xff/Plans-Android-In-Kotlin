@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    tools:context=".fragment.utils.PlansDialogFragment"
+    android:background="@android:color/transparent">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:layout_margin="40dp"
+        app:cardCornerRadius="10dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="6dp"
+            android:layout_marginHorizontal="24dp"
+            android:gravity="center">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imageView"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/ic_user_placeholder"/>
+
+            <TextView
+                android:id="@+id/tv_message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                style="@style/Plans.Text.Label.Large2"
+                android:lineSpacingExtra="3dp"
+                android:text="Are you sure you want to delete this post?"/>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="34dp"
+                android:layout_marginBottom="10dp"
+                android:layout_gravity="end">
+
+                <LinearLayout
+                    android:id="@+id/btn_cancel"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/tv_cancel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="30dp"
+                        style="@style/Plans.Text.Label.Medium2"
+                        android:text="CANCEL"
+                        android:textColor="@color/gray"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/btn_yes"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/tv_yes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="30dp"
+                        style="@style/Plans.Text.Label.Medium2"
+                        android:text="YES"
+                        android:textColor="@color/teal_main"/>
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

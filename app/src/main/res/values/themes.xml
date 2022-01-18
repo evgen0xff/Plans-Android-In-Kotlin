@@ -1,0 +1,50 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Plans" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryVariant">@android:color/black</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/white</item>
+        <item name="colorSecondaryVariant">@color/white</item>
+        <item name="colorOnSecondary">@color/white</item>
+
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">@android:color/transparent</item>
+
+        <!-- Customize your theme here. -->
+        <item name="android:datePickerDialogTheme">@style/MyDatePickerDialogTheme</item>
+        <item name="android:timePickerDialogTheme">@style/MyTimePickerDialogTheme</item>
+        <item name="pinViewStyle">@style/PinWidget.PinView</item>
+    </style>
+
+    <style name="SplashTheme" parent="Theme.Plans">
+        <item name="android:windowBackground">@drawable/bkgnd_splash</item>
+    </style>
+
+    <style name="PlansTheme">
+    </style>
+    <style name="PlansTheme.Purple" parent="PlansTheme">
+        <item name="colorPrimary">@color/purple_main</item>
+        <item name="colorPrimaryDark">@color/purple_main</item>
+        <item name="colorControlNormal">@color/purple_main</item>
+        <item name="colorControlActivated">@color/purple_main</item>
+        <item name="colorControlHighlight">@color/purple_main</item>
+        <item name="colorOnSurface">@color/purple_main</item>
+        <item name="colorAccent">@color/purple_main</item>
+    </style>
+
+    <style name="PlansTheme.White" parent="PlansTheme">
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryDark">@color/white</item>
+        <item name="colorControlNormal">@color/white</item>
+        <item name="colorControlActivated">@color/white</item>
+        <item name="colorControlHighlight">@color/white</item>
+        <item name="colorOnSurface">@color/white</item>
+        <item name="colorAccent">@color/white</item>
+    </style>
+
+</resources>

@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_background"
+    tools:context=".fragment.home.HomeFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/gradient_background">
+        <View
+                android:id="@+id/statusBar"
+                android:tag="status_bar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/statusBar_height"/>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/titleBar_height">
+
+            <RelativeLayout
+                android:id="@+id/btn_calendar"
+                android:layout_width="52dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:background="@drawable/bkgnd_circle_white_opacity10">
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_calendar_outline_white" />
+            </RelativeLayout>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="52dp"
+                style="@style/Plans.TitleBar.Text.White"
+                android:text="Plans."/>
+            <RelativeLayout
+                android:id="@+id/btn_search"
+                android:layout_width="46dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:background="@drawable/bkgnd_circle_white_opacity10">
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_search_outline_white_large" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/btn_chat"
+                android:layout_width="46dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="11dp"
+                android:background="@drawable/bkgnd_circle_white_opacity10">
+
+                <ImageView
+                    android:id="@+id/imv_chat"
+                    android:layout_width="22dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_chat_white" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/view_chatBadge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="6dp"
+                    app:cardCornerRadius="8dp"
+                    android:visibility="gone">
+                    <TextView
+                        android:id="@+id/txt_chatNumber"
+                        style="@style/Plans.Text.Label.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="16dp"
+                        android:layout_gravity="center"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:minWidth="16dp"
+                        android:paddingStart="4dp"
+                        android:paddingEnd="4dp"
+                        android:textColor="@color/pink_badge"
+                        tools:text="3" />
+                </androidx.cardview.widget.CardView>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.scwang.smart.refresh.layout.SmartRefreshLayout
+            android:id="@+id/refreshLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true">
+            <!-- Content List -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:overScrollMode="never"/>
+        </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_guideEmpty"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:padding="16dp"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:id="@+id/btn_hidden_events"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height">
+            </LinearLayout>
+
+            <androidx.legacy.widget.Space
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <TextView
+                style="@style/Plans.Text.Label.Large"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Make Plans.\nGo Places."
+                android:textColor="@color/gray_see_more" />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_calendar_event_grey" />
+
+            <TextView
+                style="@style/Plans.Text.Label.Large"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="You have no plans."
+                android:textColor="@color/gray_see_more" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="13dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_arrow_down_grey" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_guideWelcome"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:visibility="invisible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/btn_guideWelcome_findFriends"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/button_height"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/Plans.Button.Active.Teal.Border2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="FIND FRIENDS" />
+                </LinearLayout>
+
+                <TextView
+                    style="@style/Plans.Text.Label.Large.Bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="See what friends are doing. View live\nevents and join them!"
+                    android:textColor="@color/gray_see_more" />
+            </LinearLayout>
+
+            <androidx.legacy.widget.Space
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/Plans.Text.Label.Large"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Welcome to Plans."
+                    android:textColor="@color/gray_see_more" />
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_calendar_event_grey" />
+
+                <TextView
+                    style="@style/Plans.Text.Label.Large"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="Create events and invite friends now!"
+                    android:textColor="@color/gray_see_more" />
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginBottom="13dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_arrow_down_grey" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

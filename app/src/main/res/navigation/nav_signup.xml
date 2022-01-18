@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_signup"
+    app:startDestination="@id/signupMobileFragment">
+
+    <fragment
+        android:id="@+id/signupMobileFragment"
+        android:name="com.planscollective.plansapp.fragment.signup.SignupMobileFragment"
+        android:label="fragment_signup_mobile"
+        tools:layout="@layout/fragment_signup_mobile" >
+        <action
+            android:id="@+id/action_signupMobileFragment_to_countryCodeListFragment2"
+            app:destination="@id/countryCodeListFragment2"
+            app:enterAnim="@anim/move_in_left"
+            app:exitAnim="@anim/move_out_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/move_in_right"
+            app:popExitAnim="@anim/move_out_right"/>
+        <action
+            android:id="@+id/action_signupMobileFragment_to_confirmCodeFragment2"
+            app:destination="@id/confirmCodeFragment2"
+            app:enterAnim="@anim/move_in_left"
+            app:exitAnim="@anim/move_out_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/move_in_right"
+            app:popExitAnim="@anim/move_out_right">
+            <argument
+                android:name="from"
+                app:argType="string"
+                android:defaultValue="Signup" />
+            <argument
+                android:name="destination"
+                app:argType="string" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/countryCodeListFragment2"
+        android:name="com.planscollective.plansapp.fragment.auth.CountryCodeListFragment"
+        android:label="fragment_country_code_list"
+        tools:layout="@layout/fragment_country_code_list" />
+    <fragment
+        android:id="@+id/confirmCodeFragment2"
+        android:name="com.planscollective.plansapp.fragment.auth.ConfirmCodeFragment"
+        android:label="fragment_confirm_code"
+        tools:layout="@layout/fragment_confirm_code" >
+        <argument
+            android:name="destination"
+            app:argType="string" />
+        <argument
+            android:name="from"
+            app:argType="string"
+            android:defaultValue="Signup" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/signupNameFragment"
+        android:name="com.planscollective.plansapp.fragment.signup.SignupNameFragment"
+        android:label="fragment_signup_name"
+        tools:layout="@layout/fragment_signup_name" >
+    </fragment>
+    <fragment
+        android:id="@+id/signupEmailFragment"
+        android:name="com.planscollective.plansapp.fragment.signup.SignupEmailFragment"
+        android:label="fragment_signup_email"
+        tools:layout="@layout/fragment_signup_email" >
+
+    </fragment>
+    <fragment
+        android:id="@+id/signupBirthdayFragment"
+        android:name="com.planscollective.plansapp.fragment.signup.SignupBirthdayFragment"
+        android:label="fragment_signup_birthday"
+        tools:layout="@layout/fragment_signup_birthday" >
+    </fragment>
+    <fragment
+        android:id="@+id/signupPasswordFragment"
+        android:name="com.planscollective.plansapp.fragment.signup.SignupPasswordFragment"
+        android:label="fragment_signup_password"
+        tools:layout="@layout/fragment_signup_password" >
+        <action
+            android:id="@+id/action_signupPasswordFragment_to_termsOfServicesFragment"
+            app:destination="@id/termsOfServicesFragment"
+            app:enterAnim="@anim/move_in_left"
+            app:exitAnim="@anim/move_out_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/move_in_right"
+            app:popExitAnim="@anim/move_out_right"/>
+        <action
+            android:id="@+id/action_signupPasswordFragment_to_privacyPolicyFragment"
+            app:destination="@id/privacyPolicyFragment"
+            app:enterAnim="@anim/move_in_left"
+            app:exitAnim="@anim/move_out_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/move_in_right"
+            app:popExitAnim="@anim/move_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/termsOfServicesFragment"
+        android:name="com.planscollective.plansapp.fragment.helplegal.TermsOfServicesFragment"
+        android:label="fragment_helplegal_terms"
+        tools:layout="@layout/fragment_helplegal_terms" />
+    <fragment
+        android:id="@+id/privacyPolicyFragment"
+        android:name="com.planscollective.plansapp.fragment.helplegal.PrivacyPolicyFragment"
+        android:label="fragment_helplegal_privacy"
+        tools:layout="@layout/fragment_helplegal_privacy" />
+    <fragment
+        android:id="@+id/signupUserImageFragment"
+        android:name="com.planscollective.plansapp.fragment.signup.SignupUserImageFragment"
+        android:label="fragment_signup_userimage"
+        tools:layout="@layout/fragment_signup_userimage" />
+
+    <action android:id="@+id/action_global_signupNameFragment"
+        app:destination="@id/signupNameFragment"
+        app:enterAnim="@anim/move_in_left"
+        app:exitAnim="@anim/move_out_left"
+        app:launchSingleTop="true"
+        app:popEnterAnim="@anim/move_in_right"
+        app:popExitAnim="@anim/move_out_right"/>
+
+    <action android:id="@+id/action_global_signupEmailFragment"
+        app:destination="@id/signupEmailFragment"
+        app:enterAnim="@anim/move_in_left"
+        app:exitAnim="@anim/move_out_left"
+        app:launchSingleTop="true"
+        app:popEnterAnim="@anim/move_in_right"
+        app:popExitAnim="@anim/move_out_right"/>
+
+    <action android:id="@+id/action_global_signupBirthdayFragment"
+        app:destination="@id/signupBirthdayFragment"
+        app:enterAnim="@anim/move_in_left"
+        app:exitAnim="@anim/move_out_left"
+        app:launchSingleTop="true"
+        app:popEnterAnim="@anim/move_in_right"
+        app:popExitAnim="@anim/move_out_right"/>
+
+    <action android:id="@+id/action_global_signupPasswordFragment"
+        app:destination="@id/signupPasswordFragment"
+        app:enterAnim="@anim/move_in_left"
+        app:exitAnim="@anim/move_out_left"
+        app:launchSingleTop="true"
+        app:popEnterAnim="@anim/move_in_right"
+        app:popExitAnim="@anim/move_out_right"/>
+
+    <action android:id="@+id/action_global_signupUserImageFragment"
+        app:destination="@id/signupUserImageFragment"
+        app:enterAnim="@anim/move_in_left"
+        app:exitAnim="@anim/move_out_left"
+        app:launchSingleTop="true"
+        app:popEnterAnim="@anim/move_in_right"
+        app:popExitAnim="@anim/move_out_right"
+        app:popUpTo="@id/signupMobileFragment"
+        app:popUpToInclusive="true"/>
+
+</navigation>

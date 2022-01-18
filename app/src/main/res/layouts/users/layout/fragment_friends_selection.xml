@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.planscollective.plansapp.models.viewModels.FriendsSelectionVM" />
+    </data>
+
+    <com.planscollective.plansapp.customUI.PlansInsetsLinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:background="@color/white"
+        tools:context=".fragment.users.FriendsSelectionFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/gradient_background">
+            <View
+                android:id="@+id/statusBar"
+                android:tag="status_bar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/statusBar_height"/>
+            <!-- Search bar -->
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/titleBar_height"
+                android:paddingEnd="16dp"
+                tools:ignore="RtlSymmetry">
+                <LinearLayout
+                    android:id="@+id/btnBack"
+                    android:orientation="horizontal"
+                    android:layout_width="55dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_back_white"
+                        android:scaleType="fitCenter"
+                        android:adjustViewBounds="true"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/bkgnd_white_opacity24">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="32dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_search_white"/>
+                    </LinearLayout>
+                    <EditText
+                        android:id="@+id/etSearch"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="10dp"
+                        style="@style/Plans.EditText.White"
+                        android:hint="Search"
+                        android:text="@={viewModel.keywordSearch}"
+                        onEnterKeyListener="@{viewModel.actionEnterKey}"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Content Layout -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <com.scwang.smart.refresh.layout.SmartRefreshLayout
+                android:id="@+id/refreshLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true">
+                <!-- Content List -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:overScrollMode="never"/>
+            </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+
+            <!-- Done -->
+            <LinearLayout
+                android:id="@+id/layout_done"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:orientation="vertical"
+                android:background="@color/white_opacity50"
+                android:gravity="center"
+                android:visibility="visible">
+                <LinearLayout
+                    android:id="@+id/btn_done"
+                    android:layout_width="wrap_content"
+                    android:layout_height="45dp"
+                    android:layout_marginVertical="24dp"
+                    android:paddingHorizontal="24dp"
+                    android:orientation="vertical"
+                    android:background="@drawable/button_bkgnd_purple"
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/tv_done"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/Plans.Text.Label.Medium2.White"
+                        android:text="START CHAT"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Empty Layout -->
+            <RelativeLayout
+                android:id="@+id/layoutEmpty"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:background="@color/gray_background">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/imv_mark"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginBottom="8dp"
+                        android:scaleType="fitXY"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/ic_friends_grey"/>
+
+                    <TextView
+                        android:id="@+id/tv_message"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/Plans.Text.Label.Large"
+                        android:text="You don't have any friend yet."
+                        android:gravity="center"
+                        android:textColor="@color/gray_see_more" />
+                </LinearLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+
+    </com.planscollective.plansapp.customUI.PlansInsetsLinearLayout>
+</layout>

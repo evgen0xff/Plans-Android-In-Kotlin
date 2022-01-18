@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.planscollective.plansapp.customUI.PlansInsetsLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    tools:context=".fragment.auth.ConfirmCodeFragment"
+    android:background="@drawable/gradient_background">
+    <View
+                android:id="@+id/statusBar"
+                android:tag="status_bar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/statusBar_height"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/titleBar_height">
+        
+        <LinearLayout
+            android:id="@+id/btn_back"
+            android:orientation="horizontal"
+            android:layout_width="44dp"
+            android:layout_height="match_parent"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_back_white"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"/>
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="44dp"
+            style="@style/Plans.TitleBar.Text.White"
+            android:text="Enter confirmation code" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:descendantFocusability="beforeDescendants">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="15dp">
+
+            <TextView
+                android:id="@+id/tv_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Plans.Text.Description.White"
+                android:text="@string/confirm_code_description" />
+
+            <LinearLayout
+                android:id="@+id/layout_pinView"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Plans.Text.Hint.White"
+                    android:text="Code" />
+
+                <com.chaos.view.PinView
+                    android:id="@+id/pinView"
+                    style="@style/PinWidget.PinView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:focusable="true"
+                    android:cursorVisible="true"
+                    android:focusableInTouchMode="true"
+                    android:inputType="number"
+                    android:itemBackground="@drawable/pinview_bkgnd"
+                    android:textColor="@color/white"
+                    android:textSize="25sp"
+                    android:textStyle="normal"
+                    android:fontFamily="@font/product_sans_regular"
+                    app:cursorColor="@color/white"
+                    app:cursorWidth="2dp"
+                    app:hideLineWhenFilled="false"
+                    app:itemCount="6"
+                    app:itemHeight="50dp"
+                    app:itemSpacing="3dp"
+                    app:lineWidth="0dp"
+                    app:viewType="line" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height"
+                android:layout_marginTop="16dp">
+                <TextView
+                    android:id="@+id/tv_resendCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    style="@style/Plans.Button.Active"
+                    android:text="RESEND CODE"/>
+            </LinearLayout>
+
+
+
+            <androidx.legacy.widget.Space
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height"
+                android:layout_marginTop="16dp">
+                <TextView
+                    android:id="@+id/tv_continue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    style="@style/Plans.Button.Inactive"
+                    android:text="CONTINUE"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+
+</com.planscollective.plansapp.customUI.PlansInsetsLinearLayout>

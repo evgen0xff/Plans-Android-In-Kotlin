@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".activity.PlansCameraActivity">
+
+    <!-- Camera View -->
+    <com.otaliastudios.cameraview.CameraView
+        android:id="@+id/cameraView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:adjustViewBounds="true"
+        android:keepScreenOn="true"
+        app:cameraAutoFocusMarker="com.planscollective.plansapp.customUI.LingView"
+        app:cameraAutoFocusResetDelay="3000"
+        app:cameraGesturePinch="zoom"
+        app:cameraGestureTap="autoFocus"
+        app:cameraPreview="glSurface"
+        app:cameraEngine="camera2"
+        app:cameraPictureMetering="true"
+        app:cameraPictureSnapshotMetering="true"
+        app:cameraPlaySounds="false"/>
+
+    <!-- Image preview -->
+    <ImageView
+        android:id="@+id/imv_previewPhoto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"/>
+
+    <!-- Video preview -->
+    <VideoView
+        android:id="@+id/videoView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:scaleType="fitXY"
+        android:adjustViewBounds="true"
+        android:keepScreenOn="true"/>
+
+    <!-- Video play view -->
+    <LinearLayout
+        android:id="@+id/layout_play"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_centerInParent="true"
+        android:gravity="center">
+        <ImageView
+            android:layout_width="36dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_play_circle_black_opacity"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"/>
+    </LinearLayout>
+
+    <!-- Top navigation bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true">
+        <View
+                android:id="@+id/statusBar"
+                android:tag="status_bar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/statusBar_height"/>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/titleBar_height">
+
+            <LinearLayout
+                android:id="@+id/layout_leftNavItem"
+                android:orientation="horizontal"
+                android:layout_width="55dp"
+                android:layout_height="match_parent"
+                android:gravity="center">
+                <ImageView
+                    android:id="@+id/imv_leftNavItem"
+                    android:layout_width="22dp"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitCenter"
+                    android:adjustViewBounds="true"/>
+            </LinearLayout>
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                style="@style/Plans.TitleBar.Text.White"
+                android:text=""/>
+            <LinearLayout
+                android:id="@+id/layout_rightNavItem"
+                android:orientation="vertical"
+                android:layout_width="55dp"
+                android:layout_height="match_parent"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_x_circle_black_opacity"
+                    android:scaleType="fitCenter"
+                    android:adjustViewBounds="true"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Camera Control view -->
+    <LinearLayout
+        android:id="@+id/layout_cameraControl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+
+        <RelativeLayout
+            android:id="@+id/layout_flash"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_circle_black_opacity" />
+
+            <ImageView
+                android:id="@+id/imv_flash"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_centerInParent="true"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_flash_off" />
+        </RelativeLayout>
+
+        <com.planscollective.plansapp.customUI.RecordProgressView
+            android:id="@+id/prov_record"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginHorizontal="4dp"/>
+
+        <ImageView
+            android:id="@+id/imv_rotation"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_rotation_circle" />
+
+    </LinearLayout>
+
+    <!-- Send View -->
+    <LinearLayout
+        android:id="@+id/layout_send"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="4dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="68dp"
+            android:layout_height="68dp"
+            android:src="@drawable/ic_send_purple_large"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

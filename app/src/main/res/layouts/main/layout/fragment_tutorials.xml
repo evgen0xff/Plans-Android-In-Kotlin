@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    android:orientation="vertical"
+    tools:context=".fragment.main.TutorialsFragment">
+
+    <View
+                android:id="@+id/statusBar"
+                android:tag="status_bar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/statusBar_height"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </FrameLayout>
+
+    <me.relex.circleindicator.CircleIndicator3
+        android:id="@+id/indicator"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        app:ci_animator="@animator/alpha_dot"
+        app:ci_drawable="@drawable/selected_dot"
+        app:ci_drawable_unselected="@drawable/selected_dot"
+        app:ci_height="10dp"
+        app:ci_margin="4dp"
+        app:ci_width="10dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="95dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:layout_marginStart="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_GetStarted"
+                style="@style/Plans.Button.Active"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="GET STARTED" />
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

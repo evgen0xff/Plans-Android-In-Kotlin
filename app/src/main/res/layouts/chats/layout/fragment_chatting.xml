@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.planscollective.plansapp.models.viewModels.ChattingVM" />
+    </data>
+
+    <com.planscollective.plansapp.customUI.PlansInsetsLinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:background="@color/gray_background"
+        tools:context=".fragment.chats.ChattingFragment">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/gradient_background">
+            <View
+                android:id="@+id/statusBar"
+                android:tag="status_bar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/statusBar_height"/>
+            <!-- TopBar -->
+            <LinearLayout
+                android:id="@+id/layoutTopBar"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/titleBar_height"
+                android:visibility="visible">
+                <LinearLayout
+                    android:id="@+id/btnBack"
+                    android:orientation="horizontal"
+                    android:layout_width="55dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="wrap_content"
+                        android:scaleType="fitCenter"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/ic_back_white"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/tvTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/Plans.TitleBar.Text.White"
+                        android:singleLine="true"
+                        android:text="Mark Dim"/>
+                    <TextView
+                        android:id="@+id/tv_description"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/Plans.Text.Label.Small.White"
+                        android:singleLine="true"
+                        android:text="12 people"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/btnSettings"
+                    android:orientation="horizontal"
+                    android:layout_width="55dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="wrap_content"
+                        android:scaleType="fitCenter"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/ic_info_white"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <!-- Content List -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"/>
+            <ImageView
+                android:id="@+id/btn_scrollDown"
+                android:layout_width="58dp"
+                android:layout_height="58dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="8dp"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"
+                android:src="@drawable/ic_scroll_down"/>
+            <TextView
+                android:id="@+id/tv_date"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="16dp"
+                android:paddingHorizontal="20dp"
+                style="@style/Plans.Text.Label.Small"
+                android:background="@drawable/bkgnd_white_corner22"
+                android:gravity="center"
+                android:elevation="2dp"
+                android:text="December 15"/>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_typingUsers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="16dp"
+            style="@style/Plans.Text.Label.Small"
+            android:textColor="@color/teal_main"
+            android:text="Someone is typeing now..."/>
+
+        <!-- Posting Message -->
+        <LinearLayout
+            android:id="@+id/layoutMessage"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:elevation="10dp">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_opacity20"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/layout_sending"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="6dp"
+                    android:orientation="horizontal">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/imgvUserImage"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="3dp"
+                        android:src="@drawable/ic_user_placeholder" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="8dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <EditText
+                            android:id="@+id/etMessage"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            style="@style/Plans.EditText.Purple"
+                            android:inputType="textCapSentences|textMultiLine"
+                            android:hint="Write a message..."
+                            android:text="@={viewModel.messagePosting}"/>
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/btnAttach"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="-5dp"
+                        android:adjustViewBounds="true"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/ic_attach_green" />
+
+                    <ImageView
+                        android:id="@+id/btnSend"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/ic_send_grey" />
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/tv_accessMsg"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:paddingVertical="8dp"
+                    android:paddingHorizontal="16dp"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:background="@color/white"
+                    style="@style/Plans.Text.Label.Large2"
+                    android:textColor="@color/teal_main"
+                    android:text=""/>
+            </RelativeLayout>
+        </LinearLayout>
+
+    </com.planscollective.plansapp.customUI.PlansInsetsLinearLayout>
+</layout>

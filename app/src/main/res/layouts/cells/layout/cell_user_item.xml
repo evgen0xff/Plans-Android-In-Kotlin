@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginVertical="10dp"
+        android:layout_marginHorizontal="16dp"
+        android:gravity="center_vertical">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imv_userImage"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_user_placeholder"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="8dp">
+
+            <TextView
+                android:id="@+id/tv_organizerUpMark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dp"
+                style="@style/Plans.Text.Label.Small"
+                android:textColor="@color/teal_main"
+                android:text="Organizer"/>
+            <TextView
+                android:id="@+id/tv_userName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Plans.Text.Label.Medium2.Bold"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="Johe Davide"/>
+            <TextView
+                android:id="@+id/tv_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                style="@style/Plans.Text.Label.Small"
+                android:textColor="@color/gray_2"
+                android:text="123-456-7890"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutOrganizer"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="5dp"
+            android:visibility="visible"
+            tools:ignore="NestedWeights">
+
+            <TextView
+                android:id="@+id/tv_Dot"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                style="@style/Plans.Text.Label.Medium2.Bold"
+                android:gravity="center"
+                android:text="•"/>
+            <TextView
+                android:id="@+id/tv_organizerMark"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
+                style="@style/Plans.Text.Label.Small"
+                android:textColor="@color/teal_main"
+                android:gravity="center"
+                android:text="Organizer"/>
+
+        </LinearLayout>
+
+        <androidx.legacy.widget.Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            tools:ignore="NestedWeights" />
+
+        <LinearLayout
+            android:id="@+id/btn_chat"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:visibility="gone">
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"
+                android:src="@drawable/ic_chat_purple"/>
+            <TextView
+                android:id="@+id/tv_btnChat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Plans.Text.Label.Medium2"
+                android:textColor="@color/purple_main"
+                android:text="CHAT"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btn_addFriend"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+            <ImageView
+                android:id="@+id/imv_friend"
+                android:layout_width="24dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"
+                android:src="@drawable/ic_plus_purple"/>
+            <TextView
+                android:id="@+id/tv_friend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Plans.Text.Label.Medium2"
+                android:textColor="@color/purple_main"
+                android:text="ADD FRIEND"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btn_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:visibility="visible">
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"
+                android:src="@drawable/ic_dots_3_grey"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/separator_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray_opacity20"/>
+
+</LinearLayout>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorAccent">#FFFFFFFF</color>
+
+    <color name="purple_main">#522D8A</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="purple_opacity54">#8A522D8A</color>
+
+    <color name="teal_main">#38A39A</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+
+    <color name="black">#FF000000</color>
+    <color name="black_opacity70">#B2000000</color>
+    <color name="black_opacity65">#A6000000</color>
+    <color name="black_opacity54">#8A000000</color>
+    <color name="black_opacity30">#4D000000</color>
+
+    <color name="white">#FFFFFFFF</color>
+    <color name="white_opacity50">#80FFFFFF</color>
+    <color name="white_opacity24">#3DFFFFFF</color>
+    <color name="white_opacity10">#1AFFFFFF</color>
+
+    <color name="pink_start">#EC2E91</color>
+    <color name="pink_end">#F05929</color>
+    <color name="pink">#EE4164</color>
+    <color name="pink_badge">#F0572E</color>
+
+    <color name="gray">#C4C4C4</color>
+    <color name="gray_2">#C0C0C0</color>
+    <color name="gray_background">#F2F2F2</color>
+    <color name="gray_loading">#F7F7FA</color>
+    <color name="gray_border">#E6E6E6</color>
+    <color name="gray_see_more">#9A99A2</color>
+    <color name="gray_opacity20">#33808184</color>
+    <color name="gray_scale">#8affffff</color>
+
+    <color name="blue">#4575EE</color>
+    <color name="blue_facebook">#3F7EE8</color>
+
+    <color name="brown_cancelled">#EC5323</color>
+
+</resources>

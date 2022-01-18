@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.planscollective.plansapp.customUI.PlansInsetsLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    tools:context=".fragment.auth.CountryCodeListFragment"
+    android:background="@drawable/gradient_background">
+
+    <View
+                android:id="@+id/statusBar"
+                android:tag="status_bar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/statusBar_height"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/titleBar_height">
+        
+        <LinearLayout
+            android:id="@+id/btn_back"
+            android:orientation="horizontal"
+            android:layout_width="44dp"
+            android:layout_height="match_parent"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_back_white"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:layout_marginEnd="15dp"
+            android:layout_gravity="center"
+            android:background="@drawable/bkgnd_white_opacity24">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="32dp"
+                android:layout_height="match_parent"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_search_white"/>
+            </LinearLayout>
+            <EditText
+                android:id="@+id/et_search"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="10dp"
+                style="@style/Plans.EditText.White"
+                android:hint="Search"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="44dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginTop="15dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="never"/>
+
+    </LinearLayout>
+
+
+</com.planscollective.plansapp.customUI.PlansInsetsLinearLayout>

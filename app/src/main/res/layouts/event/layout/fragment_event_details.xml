@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.planscollective.plansapp.models.viewModels.EventDetailsVM" />
+    </data>
+
+    <com.planscollective.plansapp.customUI.PlansInsetsLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:fitsSystemWindows="true"
+        android:background="@color/white"
+        tools:context=".fragment.event.EventDetailsFragment">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <View
+                android:id="@+id/viewCoverLoading"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/bkgnd_gray_loading"/>
+
+            <!-- Content Layout-->
+            <LinearLayout
+                android:id="@+id/layoutContent"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true">
+
+                <!-- Content List -->
+                <com.scwang.smart.refresh.layout.SmartRefreshLayout
+                    android:id="@+id/refreshLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:overScrollMode="never"/>
+                </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+
+                <!-- Posting Layout -->
+                <LinearLayout
+                    android:id="@+id/layoutPosting"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:elevation="10dp">
+
+                    <!-- Media -->
+                    <LinearLayout
+                        android:id="@+id/layoutPostingMedia"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="220dp">
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/gray_opacity20"/>
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginVertical="8dp"
+                            android:layout_marginHorizontal="16dp">
+
+                            <ImageView
+                                android:id="@+id/imgvMedia"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerInParent="true"
+                                android:adjustViewBounds="true"
+                                android:scaleType="centerCrop" />
+
+                            <ImageView
+                                android:id="@+id/imgvPlay"
+                                android:layout_width="36dp"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:scaleType="fitXY"
+                                android:adjustViewBounds="true"
+                                android:src="@drawable/ic_play_circle_black_opacity"/>
+
+                            <ImageView
+                                android:id="@+id/btnCloseMedia"
+                                android:layout_width="36dp"
+                                android:layout_height="36dp"
+                                android:layout_alignParentTop="true"
+                                android:layout_marginTop="8dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginEnd="14dp"
+                                android:scaleType="fitXY"
+                                android:adjustViewBounds="true"
+                                android:src="@drawable/ic_x_circle_black_opacity"/>
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <!-- Message -->
+                    <LinearLayout
+                        android:id="@+id/layoutPostingMessage"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/gray_opacity20"/>
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginEnd="6dp">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/imgvUserImage"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_marginTop="3dp"
+                                android:src="@drawable/ic_user_placeholder"/>
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="16dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginBottom="8dp"
+                                android:layout_gravity="center_vertical">
+                                <EditText
+                                    android:id="@+id/etMessage"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    style="@style/Plans.EditText.Purple"
+                                    android:inputType="textCapSentences|textMultiLine"
+                                    android:hint="Write a message..."
+                                    android:text="@={viewModel.messagePosting}"/>
+
+                            </LinearLayout>
+
+                            <ImageView
+                                android:id="@+id/btnAttach"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="-5dp"
+                                android:scaleType="fitXY"
+                                android:adjustViewBounds="true"
+                                android:src="@drawable/ic_attach_green"/>
+                            <ImageView
+                                android:id="@+id/btnSend"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:scaleType="fitXY"
+                                android:adjustViewBounds="true"
+                                android:src="@drawable/ic_send_grey"/>
+
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- TopBar -->
+            <LinearLayout
+                android:id="@+id/layoutTopBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/gradient_background">
+                <View
+                android:id="@+id/statusBar"
+                android:tag="status_bar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/statusBar_height"/>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/titleBar_height"
+                    android:visibility="visible">
+                    <LinearLayout
+                        android:id="@+id/btnBack"
+                        android:orientation="horizontal"
+                        android:layout_width="55dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+                        <ImageView
+                            android:layout_width="22dp"
+                            android:layout_height="wrap_content"
+                            android:scaleType="fitCenter"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/ic_back_white"/>
+                    </LinearLayout>
+                    <TextView
+                        android:id="@+id/tvEventName"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        style="@style/Plans.TitleBar.Text.White"
+                        android:maxLines="2"
+                        android:ellipsize="end"
+                        android:text='@{viewModel.eventModel != null ? viewModel.eventModel.eventName : ""}'/>
+                    <LinearLayout
+                        android:id="@+id/btnMenu"
+                        android:orientation="horizontal"
+                        android:layout_width="55dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+                        <ImageView
+                            android:layout_width="28dp"
+                            android:layout_height="wrap_content"
+                            android:scaleType="fitCenter"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/ic_dot_3_white"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Guide Image -->
+            <ImageView
+                android:id="@+id/imv_guideAddEventPostsNow"
+                android:layout_width="154dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="45dp"
+                android:src="@drawable/im_add_event_posts_now"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY" />
+
+        </RelativeLayout>
+
+    </com.planscollective.plansapp.customUI.PlansInsetsLinearLayout>
+
+</layout>

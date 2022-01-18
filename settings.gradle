@@ -1,0 +1,2 @@
+include ':app', ':libs:video_trimmer_1.7.0'
+rootProject.name = "Plans"

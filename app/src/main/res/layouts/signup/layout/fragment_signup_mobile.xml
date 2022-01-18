@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.planscollective.plansapp.customUI.PlansInsetsLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    tools:context=".fragment.signup.SignupMobileFragment"
+    android:background="@drawable/gradient_background">
+
+    <View
+                android:id="@+id/statusBar"
+                android:tag="status_bar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/statusBar_height"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/titleBar_height">
+        
+        <LinearLayout
+            android:id="@+id/btn_back"
+            android:orientation="horizontal"
+            android:layout_width="44dp"
+            android:layout_height="match_parent"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_back_white"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"/>
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="44dp"
+            style="@style/Plans.TitleBar.Text.White"
+            android:text="What's your mobile number?" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:descendantFocusability="beforeDescendants">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="15dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Plans.Text.Description.White"
+                android:text="@string/signup_mobile_description" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/Plans.Text.Hint.White"
+                    android:text="Mobile Number" />
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp"
+                    android:layout_marginTop="6dp">
+
+                    <TextView
+                        android:id="@+id/tv_countryCode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        style="@style/Plans.Text.Button"
+                        android:text="US +1" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="17dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_gravity="center"
+                        android:background="@color/white"/>
+
+                    <EditText
+                        android:id="@+id/et_mobile"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="5dp"
+                        style="@style/Plans.EditText.White"
+                        android:digits="1234567890+-() "
+                        android:inputType="number" />
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@color/white"/>
+            </LinearLayout>
+
+            <androidx.legacy.widget.Space
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height"
+                android:layout_marginTop="16dp">
+                <TextView
+                    android:id="@+id/tv_continue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    style="@style/Plans.Button.Inactive"
+                    android:text="CONTINUE"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+
+</com.planscollective.plansapp.customUI.PlansInsetsLinearLayout>

@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.planscollective.plansapp.models.viewModels.LiveMomentCameraVM" />
+    </data>
+    <com.planscollective.plansapp.customUI.PlansInsetsLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:fitsSystemWindows="true"
+        android:background="@color/black"
+        tools:context=".fragment.liveMoment.LiveMomentCameraFragment">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- Camera View -->
+            <com.otaliastudios.cameraview.CameraView
+                android:id="@+id/cameraView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:adjustViewBounds="true"
+                android:keepScreenOn="true"
+                app:cameraGesturePinch="zoom"
+                app:cameraGestureTap="autoFocus"
+                app:cameraAutoFocusMarker="com.planscollective.plansapp.customUI.LingView"
+                app:cameraAutoFocusResetDelay="3000"
+                app:cameraPreview="glSurface"
+                app:cameraEngine="camera2"
+                app:cameraPictureMetering="true"
+                app:cameraPictureSnapshotMetering="true"
+                app:cameraPlaySounds="false"/>
+
+            <!-- Image preview -->
+            <ImageView
+                android:id="@+id/imv_previewPhoto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop" />
+
+            <!-- Video preview -->
+            <VideoView
+                android:id="@+id/videoView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"
+                android:keepScreenOn="true"/>
+
+            <!-- Video play view -->
+            <LinearLayout
+                android:id="@+id/layout_play"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:layout_centerInParent="true"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_play_circle_black_opacity"
+                    android:scaleType="fitXY"
+                    android:adjustViewBounds="true"/>
+            </LinearLayout>
+
+            <!-- Gradient Background View-->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="144dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/im_gradient_black_up"/>
+
+            <!-- Top navigation bar -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true">
+                <View
+                android:id="@+id/statusBar"
+                android:tag="status_bar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/statusBar_height"/>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/titleBar_height">
+
+                    <LinearLayout
+                        android:id="@+id/layout_leftNavItem"
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical">
+                        <ImageView
+                            android:id="@+id/imgv_live"
+                            android:layout_width="45dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:scaleType="fitXY"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/ic_live_large"/>
+
+                    </LinearLayout>
+                    <TextView
+                        android:id="@+id/tv_title"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginHorizontal="10dp"
+                        style="@style/Plans.TitleBar.Text.White"
+                        android:maxLines="2"
+                        android:ellipsize="end"
+                        android:text="@{viewModel.eventName}"/>
+                    <LinearLayout
+                        android:id="@+id/layout_rightNavItem"
+                        android:orientation="vertical"
+                        android:layout_width="61dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_x_white"
+                            android:scaleType="fitCenter"
+                            android:adjustViewBounds="true"/>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Camera Control view -->
+            <LinearLayout
+                android:id="@+id/layout_cameraControl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="20dp"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+
+                <RelativeLayout
+                    android:id="@+id/layout_flash"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:adjustViewBounds="true"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/ic_circle_black_opacity" />
+
+                    <ImageView
+                        android:id="@+id/imv_flash"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_centerInParent="true"
+                        android:adjustViewBounds="true"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/ic_flash_off" />
+                </RelativeLayout>
+
+                <com.planscollective.plansapp.customUI.RecordProgressView
+                    android:id="@+id/prov_record"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_marginHorizontal="4dp"/>
+
+                <ImageView
+                    android:id="@+id/imv_rotation"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_rotation_circle" />
+
+            </LinearLayout>
+
+            <!-- Caption View -->
+            <LinearLayout
+                android:id="@+id/layout_caption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="24dp"
+                android:paddingVertical="2dp"
+                android:gravity="center_vertical"
+                android:background="@color/black_opacity70">
+                <ScrollView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginVertical="6dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <EditText
+                            android:id="@+id/et_caption"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            style="@style/Plans.EditText.Purple"
+                            android:textColor="@color/white"
+                            android:textColorHint="@color/white_opacity50"
+                            android:inputType="textCapSentences|textMultiLine"
+                            android:hint="Add a caption"
+                            android:text="@={viewModel.caption}"/>
+                    </LinearLayout>
+                </ScrollView>
+                <ImageView
+                    android:id="@+id/btnSend"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_send_purple_black"
+                    android:scaleType="fitXY"
+                    android:adjustViewBounds="true"/>
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </com.planscollective.plansapp.customUI.PlansInsetsLinearLayout>
+
+</layout>
+

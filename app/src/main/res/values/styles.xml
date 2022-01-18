@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Plans Style -->
+    <style name="Plans">
+    </style>
+
+    <!-- Plans Text Style -->
+    <!-- Regular Text -->
+    <style name="Plans.Text" parent="Plans">
+        <item name="android:fontFamily">@font/product_sans_regular</item>
+    </style>
+
+    <style name="Plans.Text.White" parent="Plans.Text">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="Plans.Text.Black" parent="Plans.Text">
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <!-- Bold Text -->
+    <style name="Plans.Text.Bold" parent="Plans">
+        <item name="android:fontFamily">@font/product_sans_bold</item>
+    </style>
+
+    <style name="Plans.Text.Bold.White" parent="Plans.Text.Bold">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="Plans.Text.Bold.Black" parent="Plans.Text.Bold">
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <!-- TitleBar Text -->
+    <style name="Plans.TitleBar.Text.White" parent="Plans.Text.Bold.White">
+        <item name="android:textSize">@dimen/text_main_size</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!-- Description Text -->
+    <style name="Plans.Text.Description.White" parent="Plans.Text.White">
+        <item name="android:textSize">@dimen/description_text_size</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!-- Small Label -->
+    <style name="Plans.Text.Label.Small" parent="Plans.Text.Black">
+        <item name="android:textSize">@dimen/size_small</item>
+    </style>
+    <style name="Plans.Text.Label.Small.White" parent="Plans.Text.White">
+        <item name="android:textSize">@dimen/size_small</item>
+    </style>
+
+    <!-- Medium Label -->
+    <style name="Plans.Text.Label.Medium" parent="Plans.Text.Black">
+        <item name="android:textSize">@dimen/size_medium</item>
+    </style>
+    <style name="Plans.Text.Label.Medium.White" parent="Plans.Text.White">
+        <item name="android:textSize">@dimen/size_medium</item>
+    </style>
+    <style name="Plans.Text.Label.Medium2" parent="Plans.Text.Black">
+        <item name="android:textSize">@dimen/size_medium2</item>
+    </style>
+    <style name="Plans.Text.Label.Medium2.White" parent="Plans.Text.White">
+        <item name="android:textSize">@dimen/size_medium2</item>
+    </style>
+    <style name="Plans.Text.Label.Medium.Bold" parent="Plans.Text.Bold.Black">
+        <item name="android:textSize">@dimen/size_medium</item>
+    </style>
+    <style name="Plans.Text.Label.Medium2.Bold" parent="Plans.Text.Bold.Black">
+        <item name="android:textSize">@dimen/size_medium2</item>
+    </style>
+    <style name="Plans.Text.Label.Medium2.Bold.White" parent="Plans.Text.Bold.White">
+        <item name="android:textSize">@dimen/size_medium2</item>
+    </style>
+
+
+    <!-- Large Label -->
+    <style name="Plans.Text.Label.ExLarge" parent="Plans.Text.Black">
+        <item name="android:textSize">@dimen/size_extra_large</item>
+    </style>
+    <style name="Plans.Text.Label.ExLarge.Bold" parent="Plans.Text.Bold.Black">
+        <item name="android:textSize">@dimen/size_extra_large</item>
+    </style>
+    <style name="Plans.Text.Label.ExLarge.White" parent="Plans.Text.Label.ExLarge">
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="Plans.Text.Label.ExLarge.Bold.White" parent="Plans.Text.Label.ExLarge.Bold">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Plans.Text.Label.Large" parent="Plans.Text.Black">
+        <item name="android:textSize">@dimen/size_large</item>
+    </style>
+    <style name="Plans.Text.Label.Large.White" parent="Plans.Text.White">
+        <item name="android:textSize">@dimen/size_large</item>
+    </style>
+    <style name="Plans.Text.Label.Large.Bold" parent="Plans.Text.Bold.Black">
+        <item name="android:textSize">@dimen/size_large</item>
+    </style>
+    <style name="Plans.Text.Label.Large2" parent="Plans.Text.Black">
+        <item name="android:textSize">@dimen/size_large2</item>
+    </style>
+    <style name="Plans.Text.Label.Large2.white" parent="Plans.Text.White">
+        <item name="android:textSize">@dimen/size_large2</item>
+    </style>
+    <style name="Plans.Text.Label.Large2.Bold" parent="Plans.Text.Bold.Black">
+        <item name="android:textSize">@dimen/size_large2</item>
+    </style>
+    <style name="Plans.Text.Label.Large2.Bold.White" parent="Plans.Text.Bold.White">
+        <item name="android:textSize">@dimen/size_large2</item>
+    </style>
+
+
+    <!-- Hint Label Text -->
+    <style name="Plans.Text.Hint.White" parent="Plans.Text.White">
+        <item name="android:textSize">@dimen/hint_text_size</item>
+    </style>
+
+    <style name="Plans.Text.Hint.Black" parent="Plans.Text.Black">
+        <item name="android:textSize">@dimen/hint_text_size</item>
+    </style>
+
+
+    <!-- Text of button -->
+    <style name="Plans.Text.Button" parent="Plans.Text.White">
+        <item name="android:textSize">@dimen/text_main_size</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!-- Text of List Item -->
+    <style name="Plans.Text.Item" parent="Plans.Text.White">
+        <item name="android:textSize">@dimen/text_main_size</item>
+    </style>
+
+    <style name="Plans.Text.Menu" parent="Plans.Text.Black">
+        <item name="android:textSize">@dimen/text_menu_size</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+
+
+
+
+    <!-- Plans Button Style -->
+    <style name="Plans.Button" parent="Plans">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Body1</item>
+        <item name="android:textSize">@dimen/text_main_size</item>
+        <item name="android:fontFamily">@font/product_sans_regular</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="Plans.Button.Active" parent="Plans.Button">
+        <item name="android:background">@drawable/button_bkgnd_white</item>
+        <item name="android:textColor">@color/pink</item>
+    </style>
+
+    <style name="Plans.Button.Active.Teal" parent="Plans.Button">
+        <item name="android:background">@drawable/button_bkgnd_white</item>
+        <item name="android:textColor">@color/teal_main</item>
+    </style>
+
+    <style name="Plans.Button.Active.Teal2" parent="Plans.Button.Active.Teal">
+        <item name="android:textSize">@dimen/size_medium2</item>
+    </style>
+
+
+    <style name="Plans.Button.Active.Teal.Border" parent="Plans.Button">
+        <item name="android:background">@drawable/button_bkgnd_white_border_grey</item>
+        <item name="android:textColor">@color/teal_main</item>
+    </style>
+
+    <style name="Plans.Button.Active.Teal.Border2" parent="Plans.Button.Active.Teal.Border">
+        <item name="android:textSize">@dimen/size_medium2</item>
+    </style>
+
+
+
+    <style name="Plans.Button.Active.Purple" parent="Plans.Button">
+        <item name="android:background">@drawable/button_bkgnd_purple</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Plans.Button.Active.Purple2" parent="Plans.Button.Active.Purple">
+        <item name="android:textSize">@dimen/size_medium2</item>
+    </style>
+
+    <style name="Plans.Button.Inactive" parent="Plans.Button">
+        <item name="android:background">@drawable/button_bkgnd_gray</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Plans.Button.Inactive2" parent="Plans.Button.Inactive">
+        <item name="android:textSize">@dimen/size_medium2</item>
+    </style>
+
+
+    <!-- Plans EditText Style -->
+    <style name="Plans.EditText" parent="Plans">
+        <item name="android:textSize">@dimen/text_main_size</item>
+        <item name="android:fontFamily">@font/product_sans_regular</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:inputType">textCapSentences</item>
+    </style>
+
+    <style name="Plans.EditText.White" parent="Plans.EditText">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textColorHint">"@color/white_opacity50"</item>
+        <item name="android:theme">@style/PlansTheme.White</item>
+    </style>
+
+    <style name="Plans.EditText.Purple" parent="Plans.EditText">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHint">@color/gray_2</item>
+        <item name="android:theme">@style/PlansTheme.Purple</item>
+    </style>
+
+
+    <!-- Plans TextInputLayout -->
+    <style name="Plans.TextInputLayout" parent="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense" >
+    </style>
+
+    <style name="Plans.TextInputLayout.White" parent="Plans.TextInputLayout">
+        <item name="textAppearanceCaption">@style/Plans.Text.Hint.White</item>
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryDark">@color/white</item>
+        <item name="colorControlNormal">@android:color/white</item>
+        <item name="colorControlActivated">@android:color/white</item>
+        <item name="colorControlHighlight">@android:color/white</item>
+        <item name="colorOnSurface">@color/white</item>
+    </style>
+
+    <style name="Plans.TextInputLayout.Black" parent="Plans.TextInputLayout">
+        <item name="textAppearanceCaption">@style/Plans.Text.Hint.Black</item>
+        <item name="colorPrimary">@color/black</item>
+        <item name="colorPrimaryDark">@color/black</item>
+        <item name="colorControlNormal">@android:color/black</item>
+        <item name="colorControlActivated">@android:color/black</item>
+        <item name="colorControlHighlight">@android:color/black</item>
+        <item name="colorOnSurface">@color/black</item>
+    </style>
+
+
+
+    <!-- Plans DatePickerDialog -->
+    <style name="MyDatePickerDialogTheme" parent="android:Theme.Material.Light.Dialog">
+        <item name="android:datePickerStyle">@style/MyDatePickerStyle</item>
+        <item name="android:textColorPrimaryInverse">@color/white</item>    <!-- header data, month color && text highlight color -->
+        <item name="android:textColorSecondaryInverse">@color/white</item>  <!-- header year color -->
+        <item name="android:colorAccent">@color/pink</item>                 <!-- button color -->
+    </style>
+
+    <style name="MyDatePickerStyle" parent="@android:style/Widget.Material.Light.DatePicker">
+        <item name="android:headerBackground">@drawable/gradient_background</item>  <!-- header background -->
+    </style>
+
+    <!-- Plans TimePickerDialog -->
+    <style name="MyTimePickerDialogTheme" parent="android:Theme.Material.Light.Dialog">
+        <item name="android:timePickerStyle">@style/MyTimePickerStyle</item>
+        <item name="android:textColorPrimaryInverse">@color/white</item>    <!-- header data, month color && text highlight color -->
+        <item name="android:textColorSecondaryInverse">@color/white_opacity50</item>  <!-- header year color -->
+        <item name="android:colorAccent">@color/pink</item>                 <!-- button color -->
+        <item name="colorAccent">@color/pink</item>
+        <item name="colorPrimary">@color/pink</item>
+        <item name="colorPrimaryDark">@color/pink</item>
+        <item name="colorOnSurface">@color/pink</item>
+        <item name="colorOnPrimary">@color/pink</item>
+    </style>
+
+    <style name="MyTimePickerStyle" parent="@android:style/Widget.Material.Light.TimePicker">
+        <item name="android:headerBackground">@drawable/gradient_background</item>  <!-- header background -->
+    </style>
+
+    <style name="PlansSwitch" parent="@style/Widget.AppCompat.CompoundButton.Switch">
+        <item name="android:colorControlActivated">@color/purple_main</item>
+        <item name="android:colorForeground">@color/gray</item>
+        <item name="android:textAppearance">@style/Plans.Text.Label.Large2</item>
+    </style>
+
+    <style name="PlansCheckBox" parent="@style/Widget.AppCompat.CompoundButton.CheckBox">
+        <item name="colorAccent">@color/teal_main</item>
+        <item name="android:textColorSecondary">@color/black_opacity54</item>
+    </style>
+
+
+</resources>

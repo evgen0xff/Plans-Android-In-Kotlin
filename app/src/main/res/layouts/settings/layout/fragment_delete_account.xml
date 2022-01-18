@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.planscollective.plansapp.models.viewModels.DeleteAccountVM" />
+    </data>
+
+    <com.planscollective.plansapp.customUI.PlansInsetsLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:fitsSystemWindows="true"
+        android:background="@color/white"
+        tools:context=".fragment.settings.DeleteAccountFragment">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/gradient_background">
+            <View
+                android:id="@+id/statusBar"
+                android:tag="status_bar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/statusBar_height"/>
+
+            <!-- TopBar -->
+            <LinearLayout
+                android:id="@+id/layoutTopBar"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/titleBar_height"
+                android:visibility="visible">
+                <LinearLayout
+                    android:id="@+id/btnBack"
+                    android:orientation="horizontal"
+                    android:layout_width="55dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="wrap_content"
+                        android:scaleType="fitCenter"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/ic_back_white"/>
+                </LinearLayout>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    style="@style/Plans.TitleBar.Text.White"
+                    android:text='Delete Account'/>
+                <LinearLayout
+                    android:id="@+id/btn_send"
+                    android:orientation="horizontal"
+                    android:layout_width="55dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/tv_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginHorizontal="16dp"
+                        style="@style/Plans.Text.Label.Large2"
+                        android:text="John Wilson, we are sorry to see you go"/>
+                    <TextView
+                        android:id="@+id/tv_description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginHorizontal="16dp"
+                        style="@style/Plans.Text.Label.Medium2"
+                        android:lineSpacingExtra="3dp"
+                        android:text="Just a quick reminder, when deleting your account, your profile, events, chats, videos, photos, comments, likes and friend connections will be permanently removed."/>
+                    <com.planscollective.plansapp.customUI.PlansEditTextView
+                        android:id="@+id/et_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginHorizontal="16dp"
+                        app:hintText="Password"
+                        app:inputTypePlans="textPassword"/>
+                    <LinearLayout
+                        android:id="@+id/btn_deleteAccount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="45dp"
+                        android:layout_marginVertical="24dp"
+                        android:layout_gravity="center_horizontal"
+                        android:paddingHorizontal="24dp"
+                        android:orientation="vertical"
+                        android:background="@drawable/button_bkgnd_purple"
+                        android:gravity="center">
+                        <TextView
+                            android:id="@+id/tv_deleteAccount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/Plans.Text.Label.Medium2.White"
+                            android:text='DELETE ACCOUNT'/>
+                    </LinearLayout>
+                </LinearLayout>
+            </ScrollView>
+        </RelativeLayout>
+    </com.planscollective.plansapp.customUI.PlansInsetsLinearLayout>
+</layout>

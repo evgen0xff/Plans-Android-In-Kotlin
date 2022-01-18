@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.planscollective.plansapp.models.viewModels.WatchLiveMomentsVM" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        tools:context=".fragment.liveMoment.WatchLiveMomentsFragment">
+
+        <!-- Video View -->
+        <RelativeLayout
+            android:id="@+id/containerVideo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/statusBar"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="24dp"
+            android:layout_centerHorizontal="true"
+            android:visibility="visible">
+
+            <ImageView
+                android:id="@+id/imv_thumb"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:background="@android:color/transparent" />
+
+            <com.google.android.exoplayer2.ui.PlayerView
+                android:id="@+id/videoView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:background="@android:color/transparent"
+                app:shutter_background_color="@android:color/transparent"/>
+        </RelativeLayout>
+
+        <!-- Photo View -->
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/statusBar"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="24dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop" />
+
+        <!-- Gradient Background View-->
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="154dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/im_gradient_black_up"/>
+
+        <!-- Gesture View -->
+        <LinearLayout
+            android:id="@+id/layout_gesture"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_centerInParent="true"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <!-- Status Bar -->
+        <View
+            android:id="@+id/statusBar"
+            android:tag="status_bar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/statusBar_height"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"/>
+
+
+        <!-- Progress View -->
+        <com.planscollective.plansapp.customUI.segmentedProgressView.SegmentedProgressBar
+            android:id="@+id/progressView"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_below="@id/statusBar"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginVertical="8dp"
+            android:layout_marginHorizontal="2dp"
+            app:segmentBackgroundColor="@color/white_opacity50"
+            app:segmentSelectedBackgroundColor="@color/white"
+            app:segmentCornerRadius="1dp"
+            app:segmentMargins="2dp"
+            app:totalSegments="1"
+            app:timePerSegment="5000"/>
+
+        <!-- Top navigation bar -->
+        <LinearLayout
+            android:id="@+id/layout_topBar"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/titleBar_height"
+            android:layout_below="@id/progressView"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="6dp"
+            android:gravity="center_vertical">
+            <LinearLayout
+                android:id="@+id/layout_user"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/imv_user"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_user_placeholder"/>
+                <TextView
+                    android:id="@+id/tv_userName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    style="@style/Plans.Text.Label.Medium2.Bold.White"
+                    android:text="John doe"/>
+                <TextView
+                    android:id="@+id/tv_agoTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    style="@style/Plans.Text.Label.Small.White"
+                    android:textColor="@color/white_opacity50"
+                    android:text="Now"/>
+            </LinearLayout>
+            <androidx.legacy.widget.Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+            <LinearLayout
+                android:id="@+id/btn_menu"
+                android:orientation="vertical"
+                android:layout_width="44dp"
+                android:layout_height="match_parent"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_dot_3_white"
+                    android:scaleType="fitXY"
+                    android:adjustViewBounds="true"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/btn_chat"
+                android:orientation="vertical"
+                android:layout_width="44dp"
+                android:layout_height="match_parent"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_chat_white"
+                    android:scaleType="fitXY"
+                    android:adjustViewBounds="true"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/btn_close"
+                android:orientation="vertical"
+                android:layout_width="44dp"
+                android:layout_height="match_parent"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_x_white"
+                    android:scaleType="fitXY"
+                    android:adjustViewBounds="true"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Caption View -->
+        <ScrollView
+            android:id="@+id/srv_caption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="24dp"
+            android:background="@color/black_opacity70">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginHorizontal="16dp"
+                android:paddingVertical="10dp">
+                <com.planscollective.plansapp.customUI.ReadMoreTextView
+                    android:id="@+id/tv_caption"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Plans.Text.Label.Large2.white"
+                    android:autoLink="web"
+                    android:textColorLink="@color/white"
+                    android:linksClickable="false"
+                    android:lineSpacingExtra="3dp"
+                    app:trimCollapsedText="@string/see_more"
+                    app:trimExpandedText="@string/see_less"
+                    app:colorClickableText="@color/gray_see_more"
+                    app:trimLines="3"
+                    app:showTrimExpandedText="true"
+                    app:enableExpand="true"
+                    app:trimMode="trimModeLine"
+                    android:text="Outdoor Music Concert"/>
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- Tutorial View -->
+        <LinearLayout
+            android:id="@+id/layout_tutorial"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:background="@color/black_opacity65"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/im_hand_left_right" />
+
+                <TextView
+                    style="@style/Plans.Text.Label.Large2.Bold.White"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="Swipe or tap left or right\nto advance" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/im_hand_down" />
+
+                <TextView
+                    style="@style/Plans.Text.Label.Large2.Bold.White"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="Swipe down to exit" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</layout>
+

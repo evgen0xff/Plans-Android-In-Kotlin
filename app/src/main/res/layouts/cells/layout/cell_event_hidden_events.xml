@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    android:background="@android:color/transparent">
+
+    <LinearLayout
+        android:id="@+id/layout_hiddenEvents"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="@dimen/button_height"
+        android:background="@drawable/bkgnd_grey_border_corner5">
+        <TextView
+            android:id="@+id/tv_hiddenEvents"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/Plans.Text.Button"
+            android:textColor="@color/teal_main"
+            android:text="HIDDEN EVENTS (2)"/>
+    </LinearLayout>
+</LinearLayout>

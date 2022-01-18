@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.planscollective.plansapp.models.viewModels.CalendarVM" />
+    </data>
+
+    <com.planscollective.plansapp.customUI.PlansInsetsLinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:background="@color/gray_background"
+        tools:context=".fragment.home.CalendarFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/gradient_background">
+            <View
+                android:id="@+id/statusBar"
+                android:tag="status_bar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/statusBar_height"/>
+            <!-- Search bar -->
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/titleBar_height">
+                <LinearLayout
+                    android:id="@+id/btnBack"
+                    android:orientation="horizontal"
+                    android:layout_width="55dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_back_white"
+                        android:scaleType="fitCenter"
+                        android:adjustViewBounds="true"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/bkgnd_white_opacity24">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="32dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_search_white"/>
+                    </LinearLayout>
+                    <EditText
+                        android:id="@+id/etSearch"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="10dp"
+                        style="@style/Plans.EditText.White"
+                        android:hint="Search"
+                        android:text="@={viewModel.keywordSearch}"
+                        onEnterKeyListener="@{viewModel.actionEnterKey}"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:descendantFocusability="beforeDescendants">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!-- Calendar -->
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="318dp"
+                    android:background="@drawable/gradient_background">
+
+                    <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+                        android:id="@+id/calendarView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:datePickerMode="calendar"
+                        app:mcv_headerTextAppearance="@style/Plans.Text.Label.Large2.Bold.White"
+                        app:mcv_titleAnimationOrientation="horizontal"
+                        app:mcv_leftArrow="@android:color/transparent"
+                        app:mcv_rightArrow="@android:color/transparent"
+                        app:mcv_tileWidth="55dp"
+                        app:mcv_weekDayLabels="@array/weekdays"
+                        app:mcv_weekDayTextAppearance="@style/Plans.Text.Label.Large2.Bold.White"
+                        app:mcv_dateTextAppearance="@style/Plans.Text.Label.Large2.Bold.White"
+                        app:mcv_selectionColor="@android:color/transparent"/>
+
+                </LinearLayout>
+
+                <!-- Selected Day -->
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp"
+                    android:paddingHorizontal="16dp"
+                    android:gravity="center_vertical"
+                    android:background="@color/gray_border">
+                    <TextView
+                        android:id="@+id/tvSelectedDay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/Plans.Text.Label.Medium2.Bold"
+                        android:text="@{viewModel.getSelectedDayText}"
+                        android:maxLines="1"/>
+                </LinearLayout>
+
+                <!-- Content List -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"/>
+
+                <!-- Empty Layout -->
+                <LinearLayout
+                    android:id="@+id/layoutEmpty"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="16dp"
+                    android:paddingBottom="16dp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:layout_marginVertical="20dp"
+                        style="@style/Plans.Text.Label.Large"
+                        android:textColor="@color/gray_see_more"
+                        android:gravity="center"
+                        android:text="You have no plans for this day."
+                        tools:ignore="NestedWeights" />
+                    <LinearLayout
+                        android:id="@+id/btnCreateEvent"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/button_height">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            style="@style/Plans.Button.Active.Teal.Border2"
+                            android:text="CREATE EVENT"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+    </com.planscollective.plansapp.customUI.PlansInsetsLinearLayout>
+</layout>

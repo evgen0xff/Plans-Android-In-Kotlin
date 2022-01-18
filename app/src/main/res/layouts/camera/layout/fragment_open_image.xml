@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".fragment.camera.OpenImageFragment">
+
+    <com.github.chrisbanes.photoview.PhotoView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"/>
+
+    <!-- Top navigation bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true">
+        <View
+            android:id="@+id/statusBar"
+            android:tag="status_bar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/statusBar_height"/>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/titleBar_height">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="55dp"
+                android:layout_height="match_parent"
+                android:gravity="center">
+            </LinearLayout>
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                style="@style/Plans.TitleBar.Text.White"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:text=""/>
+            <LinearLayout
+                android:id="@+id/btnClose"
+                android:orientation="vertical"
+                android:layout_width="55dp"
+                android:layout_height="match_parent"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_x_circle_black_opacity"
+                    android:scaleType="fitCenter"
+                    android:adjustViewBounds="true"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+
+</RelativeLayout>

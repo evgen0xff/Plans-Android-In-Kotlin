@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.planscollective.plansapp.models.viewModels.LocationSelectionVM" />
+    </data>
+
+    <com.planscollective.plansapp.customUI.PlansInsetsLinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:background="@color/gray_background"
+        tools:context=".fragment.location.LocationSelectionFragment">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/gradient_background">
+            <View
+                android:id="@+id/statusBar"
+                android:tag="status_bar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/statusBar_height"/>
+            <!-- Search bar -->
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/titleBar_height">
+
+                <LinearLayout
+                    android:id="@+id/btnBack"
+                    android:orientation="horizontal"
+                    android:layout_width="55dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_back_white"
+                        android:scaleType="fitCenter"
+                        android:adjustViewBounds="true"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/bkgnd_white_opacity24">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="32dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_search_white"/>
+                    </LinearLayout>
+                    <EditText
+                        android:id="@+id/etSearch"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="10dp"
+                        style="@style/Plans.EditText.White"
+                        android:hint="Search"
+                        android:text="@={viewModel.keywordSearch}"
+                        onEnterKeyListener="@{viewModel.actionEnterKey}"/>
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Current Location -->
+        <LinearLayout
+            android:id="@+id/layout_currentLocation"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginHorizontal="16dp"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"
+                android:background="@drawable/ic_crosshair_circle_black" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Plans.Text.Label.Large2"
+                    android:gravity="center_vertical"
+                    android:text="Current Location"/>
+            </LinearLayout>
+        </LinearLayout>
+        <!-- Content Layout -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <!-- Content List -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"/>
+            <!-- Empty Layout -->
+            <LinearLayout
+                android:id="@+id/layoutEmpty"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_centerInParent="true"
+                android:background="@color/gray_background"
+                android:padding="16dp">
+                <LinearLayout
+                    android:id="@+id/btn_findPlaces"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/button_height">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        style="@style/Plans.Button.Active.Teal.Border2"
+                        android:text="FIND PLACES"/>
+                </LinearLayout>
+                <TextView
+                    style="@style/Plans.Text.Label.Large"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="Search and browse locations by category"
+                    android:textColor="@color/gray_see_more" />
+            </LinearLayout>
+        </RelativeLayout>
+
+    </com.planscollective.plansapp.customUI.PlansInsetsLinearLayout>
+</layout>

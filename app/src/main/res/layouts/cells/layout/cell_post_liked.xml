@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:paddingTop="8dp"
+    android:paddingBottom="0dp">
+
+    <!-- Header -->
+    <LinearLayout
+        android:id="@+id/layout_event"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center_vertical">
+        <RelativeLayout
+            android:id="@+id/btn_eventCover"
+            android:layout_width="40dp"
+            android:layout_height="40dp">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imv_eventCover"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_user_placeholder"/>
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_eventName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Plans.Text.Label.Large2.Bold"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:text="Event Name"
+                android:singleLine="true"/>
+            <TextView
+                android:id="@+id/tv_organizedBy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                style="@style/Plans.Text.Label.Small"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:text="Organized by John"
+                android:textColor="@color/gray_2"
+                android:singleLine="true"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/btn_like"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_marginStart="8dp">
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_heart_filled_green"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Text Content -->
+    <LinearLayout
+        android:id="@+id/layoutPostText"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginHorizontal="16dp">
+        <TextView
+            android:id="@+id/tvPostText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Plans.Text.Label.Medium2"
+            android:lineSpacingExtra="3dp"
+            android:text="Post message and comment message"/>
+    </LinearLayout>
+
+    <!-- Media Content -->
+    <RelativeLayout
+        android:id="@+id/layoutMedia"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginBottom="8dp">
+        <ImageView
+            android:id="@+id/imgvCoverImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"/>
+        <com.planscollective.plansapp.customUI.PlansVideoView
+            android:id="@+id/videoView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+
+    <!-- Bottom Separator -->
+    <View
+        android:id="@+id/separatorBottom"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="16dp"
+        android:background="@color/gray_opacity20"/>
+
+</LinearLayout>

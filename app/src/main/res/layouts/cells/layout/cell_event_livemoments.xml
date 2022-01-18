@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="8dp"
+        android:paddingHorizontal="12dp"
+        android:nestedScrollingEnabled="true"/>
+
+    <!-- Guide Add Live Moment -->
+    <ImageView
+        android:id="@+id/imv_guide_post"
+        android:layout_width="154dp"
+        android:layout_height="71dp"
+        android:layout_marginTop="-8dp"
+        android:layout_marginStart="12dp"
+        android:scaleType="fitXY"
+        android:adjustViewBounds="false"
+        android:src="@drawable/im_tap_to_post"/>
+
+    <LinearLayout
+        android:id="@+id/btnShowAll"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height"
+        android:layout_marginBottom="12dp"
+        android:layout_marginHorizontal="16dp"
+        android:background="@drawable/bkgnd_grey_border_corner5">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/Plans.Text.Label.Medium2"
+            android:textColor="@color/teal_main"
+            android:gravity="center"
+            android:text="SHOW ALL LIVE MOMENTS"/>
+    </LinearLayout>
+    <View
+        android:id="@+id/viewBottomSeparator"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginHorizontal="16dp"
+        android:background="@color/gray_opacity20"/>
+</LinearLayout>

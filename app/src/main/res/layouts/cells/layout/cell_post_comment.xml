@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:paddingTop="8dp"
+    android:paddingBottom="0dp">
+
+    <!-- Header -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp">
+        <RelativeLayout
+            android:id="@+id/btnUserImage"
+            android:layout_width="40dp"
+            android:layout_height="40dp">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imvUserImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_user_placeholder"/>
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/tvUserName"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:maxWidth="200dp"
+            android:layout_marginStart="8dp"
+            android:gravity="center_vertical"
+            style="@style/Plans.Text.Label.Medium2.Bold"
+            android:text="John Done"
+            android:maxLines="2"
+            android:ellipsize="end"/>
+        <LinearLayout
+            android:id="@+id/layoutOrganizer"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                style="@style/Plans.Text.Label.Medium2.Bold"
+                android:gravity="center"
+                android:text="•"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
+                style="@style/Plans.Text.Label.Small"
+                android:textColor="@color/teal_main"
+                android:gravity="center"
+                android:text="Organizer"/>
+
+        </LinearLayout>
+        <androidx.legacy.widget.Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+        <TextView
+            android:id="@+id/tvTime"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:gravity="center_vertical"
+            style="@style/Plans.Text.Label.Small"
+            android:textColor="@color/gray_2"
+            android:text="Now"
+            android:maxLines="2"/>
+        <LinearLayout
+            android:id="@+id/btnMenu"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_marginStart="8dp">
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:src="@drawable/ic_dots_3_grey"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Text Content -->
+    <LinearLayout
+        android:id="@+id/layoutMessage"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginHorizontal="16dp">
+        <TextView
+            android:id="@+id/tvMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Plans.Text.Label.Medium2"
+            android:autoLink="web"
+            android:textColorLink="@color/purple_opacity54"
+            android:lineSpacingExtra="3dp"
+            android:text="Post message and comment message"/>
+    </LinearLayout>
+
+    <!-- Media Content -->
+    <RelativeLayout
+        android:id="@+id/layoutMedia"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="8dp">
+        <ImageView
+            android:id="@+id/imgvCoverImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"/>
+        <com.planscollective.plansapp.customUI.PlansVideoView
+            android:id="@+id/videoView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+
+    <!-- Likes and Comments -->
+    <LinearLayout
+        android:id="@+id/layoutLikesAndComments"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="34dp"
+        android:gravity="center_vertical">
+
+        <!-- Likes -->
+        <LinearLayout
+            android:id="@+id/layoutLikes"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center">
+            <ImageView
+                android:id="@+id/imgvLike"
+                android:layout_width="16dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"
+                android:src="@drawable/ic_heart_outline_grey"/>
+            <TextView
+                android:id="@+id/tvLikes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                style="@style/Plans.Text.Label.Small"
+                android:textColor="@color/teal_main"
+                android:text="10"/>
+        </LinearLayout>
+
+        <!-- Users Liked -->
+        <RelativeLayout
+            android:id="@+id/layoutUsersLiked"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:gravity="center_vertical">
+            <RelativeLayout
+                android:id="@+id/layoutUser3"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_alignStart="@id/layoutUser2"
+                android:layout_marginStart="12dp"
+                android:gravity="center">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/bkgnd_white_corner9" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/imgvUser3"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/ic_user_placeholder" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/layoutUser2"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_alignStart="@id/layoutUser1"
+                android:layout_marginStart="12dp"
+                android:gravity="center">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/bkgnd_white_corner9" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/imgvUser2"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/ic_user_placeholder" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/layoutUser1"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:gravity="center">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/bkgnd_white_corner9" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/imgvUser1"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/ic_user_placeholder" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <!-- Comments -->
+        <LinearLayout
+            android:id="@+id/layoutComments"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:gravity="center">
+            <ImageView
+                android:id="@+id/imgvComment"
+                android:layout_width="16dp"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"
+                android:src="@drawable/ic_message_outline_grey"/>
+            <TextView
+                android:id="@+id/tvComments"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                style="@style/Plans.Text.Label.Small"
+                android:text="12"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Bottom Separator -->
+    <View
+        android:id="@+id/viewBottomSeparator"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="16dp"
+        android:background="@color/gray_opacity20"/>
+
+</LinearLayout>

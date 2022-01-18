@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/tutorialsFragment"
+        android:name="com.planscollective.plansapp.fragment.main.TutorialsFragment"
+        android:label="fragment_tutorials"
+        tools:layout="@layout/fragment_tutorials">
+        <action
+            android:id="@+id/action_tutorialsFragment_to_landingFragment"
+            app:destination="@id/landingFragment"
+            app:enterAnim="@anim/move_in_left"
+            app:exitAnim="@anim/move_out_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/move_in_right"
+            app:popExitAnim="@anim/move_out_right"
+            app:popUpTo="@id/tutorialsFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/landingFragment"
+        android:name="com.planscollective.plansapp.fragment.main.LandingFragment"
+        android:label="fragment_landing"
+        tools:layout="@layout/fragment_landing" >
+        <action
+            android:id="@+id/action_landingFragment_to_nav_auth"
+            app:destination="@id/nav_auth"
+            app:enterAnim="@anim/move_in_left"
+            app:exitAnim="@anim/move_out_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/move_in_right"
+            app:popExitAnim="@anim/move_out_right" />
+        <action
+            android:id="@+id/action_landingFragment_to_nav_signup"
+            app:destination="@id/nav_signup"
+            app:enterAnim="@anim/move_in_left"
+            app:exitAnim="@anim/move_out_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/move_in_right"
+            app:popExitAnim="@anim/move_out_right"/>
+    </fragment>
+    <action android:id="@+id/action_global_landingFragment"
+        app:destination="@id/landingFragment" />
+    <include app:graph="@navigation/nav_auth" />
+    <include app:graph="@navigation/nav_signup" />
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.planscollective.plansapp.fragment.main.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_tutorialsFragment"
+            app:destination="@id/tutorialsFragment"
+            app:enterAnim="@anim/move_in_left"
+            app:exitAnim="@anim/move_out_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/move_in_right"
+            app:popExitAnim="@anim/move_out_right"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+</navigation>

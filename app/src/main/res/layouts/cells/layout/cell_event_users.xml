@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="11dp"
+    android:paddingTop="3dp"
+    android:paddingBottom="0dp"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:id="@+id/layoutHeader"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="3dp"
+        android:layout_marginHorizontal="5dp">
+        <TextView
+            android:id="@+id/tvHeader"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/Plans.Text.Label.Medium2.Bold"
+            android:text="People"
+            android:maxLines="1"/>
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <ImageView
+        android:id="@+id/imv_guide_guest_list"
+        android:layout_width="154dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:scaleType="fitXY"
+        android:adjustViewBounds="true"
+        android:src="@drawable/im_tap_to_view_guest_list_left"/>
+    <View
+        android:id="@+id/viewBottomSeparator"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginHorizontal="5dp"
+        android:background="@color/gray_opacity20"/>
+</LinearLayout>

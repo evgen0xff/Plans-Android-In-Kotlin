@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="11dp"
+    android:paddingTop="3dp"
+    android:paddingBottom="0dp"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:id="@+id/layoutHeader"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="3dp"
+        android:layout_marginHorizontal="5dp">
+        <TextView
+            android:id="@+id/tvHeader"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/Plans.Text.Label.Medium2.Bold"
+            android:text="20 Likes"
+            android:maxLines="1"/>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp">
+
+        <RelativeLayout
+            android:id="@+id/layoutHeart"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:gravity="center">
+            <ImageView
+                android:id="@+id/imvHeart"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_centerInParent="true"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"
+                android:src="@drawable/ic_heart_filled_green"/>
+        </RelativeLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"/>
+        <RelativeLayout
+            android:id="@+id/layoutMoreUsers"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:gravity="center">
+            <ImageView
+                android:id="@+id/imvMoreUsers"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerInParent="true"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"
+                android:src="@drawable/ic_dots_3_circle_green"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

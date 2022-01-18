@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.planscollective.plansapp.models.viewModels.EditInvitationVM" />
+    </data>
+
+    <com.planscollective.plansapp.customUI.PlansInsetsLinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:background="@color/gray_background"
+        tools:context=".fragment.event.EditInvitationFragment">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gradient_background">
+            <View
+                android:id="@+id/statusBar"
+                android:tag="status_bar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/statusBar_height"/>
+
+            <!-- Search bar -->
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/titleBar_height">
+
+                <LinearLayout
+                    android:id="@+id/btnBack"
+                    android:orientation="horizontal"
+                    android:layout_width="55dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_back_white"
+                        android:scaleType="fitCenter"
+                        android:adjustViewBounds="true"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/bkgnd_white_opacity24">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="32dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_search_white"/>
+                    </LinearLayout>
+                    <EditText
+                        android:id="@+id/etSearch"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="10dp"
+                        style="@style/Plans.EditText.White"
+                        android:hint="Search"
+                        android:text="@={viewModel.keywordSearch}"
+                        onEnterKeyListener="@{viewModel.actionEnterKey}"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Top tab bar -->
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="44dp">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recvTabBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Content Layout -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/gray_background">
+
+            <!-- List -->
+            <LinearLayout
+                android:id="@+id/layout_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_centerInParent="true">
+
+                <!-- Add Email and Phone Number -->
+                <FrameLayout
+                    android:id="@+id/layout_add"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="7dp"
+                    android:background="@color/white">
+
+                    <!-- Add Email -->
+                    <LinearLayout
+                        android:id="@+id/layout_email"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:visibility="invisible">
+                        <TextView
+                            android:id="@+id/tv_emailHintLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/Plans.Text.Label.Small"
+                            android:textColor="@color/black"
+                            android:text="Add Email Address" />
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="28dp"
+                            android:layout_marginTop="6dp">
+                            <EditText
+                                android:id="@+id/editText_email"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                style="@style/Plans.EditText.Purple"
+                                android:inputType="textEmailAddress"
+                                android:hint="Add Email Address"
+                                android:text="@={viewModel.emailAdding}"/>
+                            <ImageView
+                                android:id="@+id/imv_checkEmail"
+                                android:layout_width="16dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="8dp"
+                                android:src="@drawable/ic_check_purple"/>
+                            <TextView
+                                android:id="@+id/btnAddEmail"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:paddingStart="8dp"
+                                style="@style/Plans.Text.Label.Medium2"
+                                android:gravity="center"
+                                android:text="ADD"/>
+                        </LinearLayout>
+                        <View
+                            android:id="@+id/viewBottomBarEmail"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="4dp"
+                            android:background="@color/gray_see_more"/>
+                    </LinearLayout>
+
+                    <!-- Add Phone Number -->
+                    <LinearLayout
+                        android:id="@+id/layout_mobile"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:visibility="visible">
+
+                        <TextView
+                            android:id="@+id/tv_mobileHintLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/Plans.Text.Label.Small"
+                            android:text="Add Phone Number" />
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="28dp"
+                            android:layout_marginTop="6dp">
+                            <TextView
+                                android:id="@+id/tv_countryCode"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                style="@style/Plans.Text.Label.Large"
+                                android:textColor="@color/gray_see_more"
+                                android:gravity="center"
+                                android:text="US +1" />
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="17dp"
+                                android:layout_marginLeft="5dp"
+                                android:layout_gravity="center"
+                                android:background="@color/white"/>
+
+                            <EditText
+                                android:id="@+id/editText_mobile"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="5dp"
+                                style="@style/Plans.EditText.Purple"
+                                android:digits="1234567890+-() "
+                                android:inputType="number"/>
+
+                            <ImageView
+                                android:id="@+id/imv_checkPhone"
+                                android:layout_width="16dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="8dp"
+                                android:src="@drawable/ic_check_purple"/>
+                            <TextView
+                                android:id="@+id/btnAddPhone"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:paddingStart="8dp"
+                                style="@style/Plans.Text.Label.Medium2"
+                                android:gravity="center"
+                                android:text="ADD"/>
+                        </LinearLayout>
+
+                        <View
+                            android:id="@+id/viewBottomBarPhone"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="4dp"
+                            android:background="@color/gray_see_more"/>
+                    </LinearLayout>
+                </FrameLayout>
+
+                <!-- User List -->
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <com.scwang.smart.refresh.layout.SmartRefreshLayout
+                        android:id="@+id/refreshLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <!-- Content List -->
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recyclerView"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:overScrollMode="never"/>
+                    </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+
+                    <!-- Empty Layout -->
+                    <LinearLayout
+                        android:id="@+id/layoutEmpty"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/gray_background"
+                        android:gravity="center"
+                        android:padding="16dp"
+                        android:visibility="invisible">
+                        <TextView
+                            android:id="@+id/tvEmpty"
+                            style="@style/Plans.Text.Label.Large"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:text="No user found"
+                            android:textColor="@color/gray_see_more" />
+                    </LinearLayout>
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+            <!-- No Access to Contacts -->
+            <LinearLayout
+                android:id="@+id/layout_openSettings"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_centerInParent="true"
+                android:paddingVertical="50dp"
+                android:paddingHorizontal="16dp"
+                android:background="@color/gray_background"
+                android:visibility="invisible">
+                <TextView
+                    style="@style/Plans.Text.Label.Large"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="30dp"
+                    android:gravity="center"
+                    android:text="It looks like Plans doesn't have access to you contacts. Update your Plans app permissions in your phone's settings"
+                    android:textColor="@color/gray_see_more" />
+                <LinearLayout
+                    android:id="@+id/btnOpenSettings"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/button_height">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        style="@style/Plans.Button.Active.Teal.Border2"
+                        android:text="OPEN SETTINGS"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Share Link -->
+            <LinearLayout
+                android:id="@+id/layout_shareLink"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_centerInParent="true"
+                android:padding="16dp"
+                android:background="@color/white"
+                android:visibility="invisible">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="32dp"
+                    android:layout_marginHorizontal="14dp"
+                    style="@style/Plans.Text.Label.Medium2"
+                    android:gravity="center"
+                    android:text="Copy and paste this link and share it in any way you would like to invite more friends"
+                    />
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/Plans.Text.Label.Small"
+                        android:textColor="@color/black"
+                        android:text="Invite link" />
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="28dp"
+                        android:layout_marginTop="6dp">
+                        <TextView
+                            android:id="@+id/tv_shareLink"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            style="@style/Plans.Text.Label.Large2"
+                            android:textColor="@color/purple_opacity54"
+                            android:gravity="center_vertical"/>
+                        <TextView
+                            android:id="@+id/btn_copy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:paddingStart="8dp"
+                            style="@style/Plans.Text.Label.Medium2"
+                            android:textColor="@color/purple_main"
+                            android:gravity="center"
+                            android:text="COPY"
+                            tools:ignore="RtlSymmetry" />
+
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="4dp"
+                        android:background="@color/gray_see_more"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/btn_shareLink"
+                    android:layout_width="135dp"
+                    android:layout_height="45dp"
+                    android:layout_marginVertical="32dp"
+                    android:orientation="vertical"
+                    android:background="@drawable/button_bkgnd_purple"
+                    android:gravity="center"
+                    android:layout_gravity="center_horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/Plans.Text.Label.Medium2.White"
+                        android:text="SHARE LINK"/>
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <!-- Done -->
+            <LinearLayout
+                android:id="@+id/layout_done"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:orientation="vertical"
+                android:background="@color/white_opacity50"
+                android:gravity="center"
+                android:visibility="visible">
+                <LinearLayout
+                    android:id="@+id/btn_done"
+                    android:layout_width="91dp"
+                    android:layout_height="45dp"
+                    android:layout_marginVertical="24dp"
+                    android:orientation="vertical"
+                    android:background="@drawable/button_bkgnd_purple"
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/tv_done"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/Plans.Text.Label.Medium2.White"
+                        android:text="DONE"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/layout_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginHorizontal="21dp"
+                    android:layout_marginBottom="21dp"
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/tv_descriptionSelect"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/Plans.Text.Label.Medium2"
+                        android:text="Selected 1 email and 1 contact."/>
+                    <TextView
+                        android:id="@+id/tv_descriptionRemove"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/Plans.Text.Label.Medium2"
+                        android:text="Removed 1 email and 1 contact."/>
+                </LinearLayout>
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </com.planscollective.plansapp.customUI.PlansInsetsLinearLayout>
+</layout>

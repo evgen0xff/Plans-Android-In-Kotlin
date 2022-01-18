@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/btn_boundary"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginEnd="11dp"
+        android:gravity="center"
+        android:background="@drawable/button_bkgnd_purple">
+        <TextView
+            android:id="@+id/tv_boundary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            style="@style/Plans.Text.Label.Large2.white"
+            android:text="200ft"/>
+    </LinearLayout>
+</LinearLayout>

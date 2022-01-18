@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_auth"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.planscollective.plansapp.fragment.auth.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_resetPasswordFragment"
+            app:destination="@id/resetPasswordFragment"
+            app:enterAnim="@anim/move_in_left"
+            app:exitAnim="@anim/move_out_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/move_in_right"
+            app:popExitAnim="@anim/move_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/resetPasswordFragment"
+        android:name="com.planscollective.plansapp.fragment.auth.ResetPasswordFragment"
+        android:label="fragment_reset_password"
+        tools:layout="@layout/fragment_reset_password" >
+        <action
+            android:id="@+id/action_resetPasswordFragment_to_countryCodeListFragment"
+            app:destination="@id/countryCodeListFragment"
+            app:enterAnim="@anim/move_in_left"
+            app:exitAnim="@anim/move_out_left"
+            app:popEnterAnim="@anim/move_in_right"
+            app:popExitAnim="@anim/move_out_right"
+            app:launchSingleTop="true" />
+        <action
+            android:id="@+id/action_resetPasswordFragment_to_confirmCodeFragment"
+            app:destination="@id/confirmCodeFragment"
+            app:enterAnim="@anim/move_in_left"
+            app:exitAnim="@anim/move_out_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/move_in_right"
+            app:popExitAnim="@anim/move_out_right" >
+            <argument
+                android:name="from"
+                app:argType="string"
+                android:defaultValue="ResetPassword" />
+            <argument
+                android:name="destination"
+                app:argType="string" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/countryCodeListFragment"
+        android:name="com.planscollective.plansapp.fragment.auth.CountryCodeListFragment"
+        android:label="CountryCodeListFragment"
+        tools:layout="@layout/fragment_country_code_list"/>
+    <fragment
+        android:id="@+id/confirmCodeFragment"
+        android:name="com.planscollective.plansapp.fragment.auth.ConfirmCodeFragment"
+        android:label="fragment_confirm_code"
+        tools:layout="@layout/fragment_confirm_code" >
+        <argument
+            android:name="destination"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_confirmCodeFragment_to_newPasswordFragment"
+            app:destination="@id/newPasswordFragment"
+            app:enterAnim="@anim/move_in_left"
+            app:exitAnim="@anim/move_out_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/move_in_right"
+            app:popExitAnim="@anim/move_out_right" />
+        <argument android:name="from"
+            app:argType="string"
+            android:defaultValue="ResetPassword" />
+    </fragment>
+    <fragment
+        android:id="@+id/newPasswordFragment"
+        android:name="com.planscollective.plansapp.fragment.auth.NewPasswordFragment"
+        android:label="fragment_new_password"
+        tools:layout="@layout/fragment_new_password" />
+    <action android:id="@+id/action_global_countryCodeListFragment"
+        app:destination="@id/countryCodeListFragment"
+        app:enterAnim="@anim/move_in_left"
+        app:exitAnim="@anim/move_out_left"
+        app:popEnterAnim="@anim/move_in_right"
+        app:popExitAnim="@anim/move_out_right"
+        app:launchSingleTop="true"/>
+
+</navigation>
